@@ -2,13 +2,13 @@
 
 import React from "react";
 import { useOrganization } from "@clerk/nextjs";
-import { useQuery, useMutation } from "convex/react";
+import { useQuery, useMutation, useConvexAuth } from "convex/react";
 import { api } from "@/convex/_generated/api";
-import { 
-  Receipt, 
-  Plus, 
-  Lock, 
-  Check, 
+import {
+  Receipt,
+  Plus,
+  Lock,
+  Check,
   CalendarDays,
   FileText,
   BadgeAlert,
@@ -18,14 +18,14 @@ import {
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
-import { 
-  Dialog, 
-  DialogContent, 
-  DialogDescription, 
-  DialogFooter, 
-  DialogHeader, 
-  DialogTitle, 
-  DialogTrigger 
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger
 } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -33,6 +33,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 
 export default function InvoicesPage() {
   const { organization, membership } = useOrganization();
+  const { isAuthenticated } = useConvexAuth();
   const [isDialogOpen, setIsDialogOpen] = React.useState(false);
 
   // Form states
@@ -43,9 +44,10 @@ export default function InvoicesPage() {
   const [status, setStatus] = React.useState<"draft" | "sent" | "paid">("sent");
 
   // Convex hooks
-  const invoices = useQuery(api.invoices.listInvoices, {
-    orgId: organization?.id ?? "",
-  });
+  const invoices = useQuery(
+    api.invoices.listInvoices,
+    isAuthenticated && organization?.id ? { orgId: organization.id } : "skip"
+  );
 
   const createInvoice = useMutation(api.invoices.createInvoice);
   const updateInvoiceStatus = useMutation(api.invoices.updateInvoiceStatus);
@@ -104,7 +106,7 @@ export default function InvoicesPage() {
 
   return (
     <div className="space-y-6 animate-in fade-in duration-300">
-      
+
       {/* Header bar */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b pb-5">
         <div>
@@ -125,7 +127,7 @@ export default function InvoicesPage() {
         {/* Invoice Creation Trigger */}
         <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
           <DialogTrigger asChild>
-            <Button 
+            <Button
               disabled={isViewer}
               className="bg-emerald-600 hover:bg-emerald-500 text-white font-semibold rounded-xl flex items-center justify-center gap-1.5 shadow-md shadow-emerald-500/10"
             >
@@ -142,13 +144,13 @@ export default function InvoicesPage() {
                 </DialogDescription>
               </DialogHeader>
               <div className="grid gap-4 py-4">
-                
+
                 {/* Customer Details */}
                 <div className="flex flex-col gap-1.5">
                   <Label htmlFor="customerName">Client Company Name</Label>
-                  <Input 
-                    id="customerName" 
-                    placeholder="e.g. Stark Industries" 
+                  <Input
+                    id="customerName"
+                    placeholder="e.g. Stark Industries"
                     value={customerName}
                     onChange={(e) => setCustomerName(e.target.value)}
                     required
@@ -157,10 +159,10 @@ export default function InvoicesPage() {
 
                 <div className="flex flex-col gap-1.5">
                   <Label htmlFor="customerEmail">Client Billing Email</Label>
-                  <Input 
-                    id="customerEmail" 
+                  <Input
+                    id="customerEmail"
                     type="email"
-                    placeholder="billing@stark.com" 
+                    placeholder="billing@stark.com"
                     value={customerEmail}
                     onChange={(e) => setCustomerEmail(e.target.value)}
                     required
@@ -171,11 +173,11 @@ export default function InvoicesPage() {
                 <div className="grid grid-cols-2 gap-4">
                   <div className="flex flex-col gap-1.5">
                     <Label htmlFor="amount">Total Amount ($)</Label>
-                    <Input 
-                      id="amount" 
+                    <Input
+                      id="amount"
                       type="number"
                       step="0.01"
-                      placeholder="1200.00" 
+                      placeholder="1200.00"
                       value={amount}
                       onChange={(e) => setAmount(e.target.value)}
                       required
@@ -214,8 +216,8 @@ export default function InvoicesPage() {
 
               </div>
               <DialogFooter>
-                <Button 
-                  type="submit" 
+                <Button
+                  type="submit"
                   className="bg-emerald-600 hover:bg-emerald-500 text-white font-semibold rounded-xl w-full sm:w-auto"
                 >
                   Generate Invoice
@@ -268,13 +270,12 @@ export default function InvoicesPage() {
                       </span>
                     </TableCell>
                     <TableCell>
-                      <span className={`inline-flex items-center gap-1 text-[10px] font-bold px-2 py-0.5 rounded-full ${
-                        inv.status === "paid" 
-                          ? "bg-emerald-500/10 text-emerald-600" 
-                          : isOverdue 
-                            ? "bg-rose-500/10 text-rose-600" 
-                            : "bg-amber-500/10 text-amber-600"
-                      }`}>
+                      <span className={`inline-flex items-center gap-1 text-[10px] font-bold px-2 py-0.5 rounded-full ${inv.status === "paid"
+                        ? "bg-emerald-500/10 text-emerald-600"
+                        : isOverdue
+                          ? "bg-rose-500/10 text-rose-600"
+                          : "bg-amber-500/10 text-amber-600"
+                        }`}>
                         {inv.status === "paid" ? (
                           <Check className="h-3 w-3" />
                         ) : isOverdue ? (
@@ -290,15 +291,14 @@ export default function InvoicesPage() {
                     </TableCell>
                     {!isViewer && (
                       <TableCell className="text-center">
-                        <Button 
-                          variant="outline" 
+                        <Button
+                          variant="outline"
                           size="sm"
                           onClick={() => handleTogglePaid(inv._id, inv.status)}
-                          className={`text-[10px] font-bold rounded-lg px-2 py-1 h-6 transition-all ${
-                            inv.status === "paid"
-                              ? "border-amber-200 text-amber-600 hover:bg-amber-500/5 dark:border-amber-900/50"
-                              : "border-emerald-200 text-emerald-600 bg-emerald-500/5 hover:bg-emerald-500/10 dark:border-emerald-900/50"
-                          }`}
+                          className={`text-[10px] font-bold rounded-lg px-2 py-1 h-6 transition-all ${inv.status === "paid"
+                            ? "border-amber-200 text-amber-600 hover:bg-amber-500/5 dark:border-amber-900/50"
+                            : "border-emerald-200 text-emerald-600 bg-emerald-500/5 hover:bg-emerald-500/10 dark:border-emerald-900/50"
+                            }`}
                         >
                           <FolderSync className="h-3 w-3 shrink-0 mr-1" />
                           {inv.status === "paid" ? "Mark Unpaid" : "Mark Paid"}

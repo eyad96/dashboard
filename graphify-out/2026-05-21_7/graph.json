@@ -2527,7 +2527,7 @@
       "label": "listTransactions",
       "file_type": "code",
       "source_file": "convex/transactions.ts",
-      "source_location": "L54",
+      "source_location": "L45",
       "id": "convex_transactions_listtransactions",
       "community": 14,
       "norm_label": "listtransactions"
@@ -2536,7 +2536,7 @@
       "label": "createTransaction",
       "file_type": "code",
       "source_file": "convex/transactions.ts",
-      "source_location": "L77",
+      "source_location": "L68",
       "id": "convex_transactions_createtransaction",
       "community": 14,
       "norm_label": "createtransaction"
@@ -2545,7 +2545,7 @@
       "label": "deleteTransaction",
       "file_type": "code",
       "source_file": "convex/transactions.ts",
-      "source_location": "L107",
+      "source_location": "L98",
       "id": "convex_transactions_deletetransaction",
       "community": 14,
       "norm_label": "deletetransaction"

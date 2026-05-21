@@ -2,7 +2,7 @@
 
 import React from "react";
 import { useOrganization } from "@clerk/nextjs";
-import { useQuery, useMutation } from "convex/react";
+import { useQuery, useMutation, useConvexAuth } from "convex/react";
 import { api } from "@/convex/_generated/api";
 import { 
   ArrowRightLeft, 
@@ -33,6 +33,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 
 export default function TransactionsPage() {
   const { organization, membership } = useOrganization();
+  const { isAuthenticated } = useConvexAuth();
   const [isDialogOpen, setIsDialogOpen] = React.useState(false);
 
   // Filter states
@@ -46,9 +47,10 @@ export default function TransactionsPage() {
   const [status, setStatus] = React.useState<"pending" | "completed">("completed");
 
   // Convex real-time hooks
-  const transactions = useQuery(api.transactions.listTransactions, {
-    orgId: organization?.id ?? "",
-  });
+  const transactions = useQuery(
+    api.transactions.listTransactions,
+    isAuthenticated && organization?.id ? { orgId: organization.id } : "skip"
+  );
 
   const createTransaction = useMutation(api.transactions.createTransaction);
   const deleteTransaction = useMutation(api.transactions.deleteTransaction);

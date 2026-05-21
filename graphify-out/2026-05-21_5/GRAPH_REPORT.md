@@ -1,16 +1,16 @@
 # Graph Report - dashboard  (2026-05-21)
 
 ## Corpus Check
-- 115 files · ~57,392 words
+- 115 files · ~57,178 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 792 nodes · 968 edges · 52 communities (45 shown, 7 thin omitted)
+- 791 nodes · 963 edges · 52 communities (45 shown, 7 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS · INFERRED: 4 edges (avg confidence: 0.83)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `d1c5dbbf`
+- Built from commit: `dfbc3df0`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -87,8 +87,8 @@
 ## Communities (52 total, 7 thin omitted)
 
 ### Community 0 - "Chat & Theme UI"
-Cohesion: 0.08
-Nodes (26): ChatIntro(), Message(), names, randomName(), convex, DashboardNav(), navItems, ThemeToggle() (+18 more)
+Cohesion: 0.07
+Nodes (28): Chat(), ChatIntro(), Message(), MessageList(), names, randomName(), convex, DashboardNav() (+20 more)
 
 ### Community 1 - "Convex Quickstart & Setup"
 Cohesion: 0.05
@@ -104,7 +104,7 @@ Nodes (29): code:typescript (import { mutation } from "./_generated/server";), c
 
 ### Community 4 - "Convex Backend API Router"
 Cohesion: 0.05
-Nodes (43): dependencies, class-variance-authority, @clerk/nextjs, clsx, convex, lucide-react, next, next-themes (+35 more)
+Nodes (42): dependencies, class-variance-authority, @clerk/nextjs, clsx, convex, lucide-react, next, next-themes (+34 more)
 
 ### Community 5 - "Convex Query Optimization"
 Cohesion: 0.06
@@ -159,8 +159,8 @@ Cohesion: 0.09
 Nodes (37): computedHash, computedHash, skillPath, source, sourceType, computedHash, skillPath, source (+29 more)
 
 ### Community 18 - "Convex tsconfig Settings"
-Cohesion: 0.07
-Nodes (38): Chat(), MessageList(), CashFlowChart(), CashFlowChartProps, Code(), InvoiceStatusChart(), InvoiceStatusChartProps, components (+30 more)
+Cohesion: 0.08
+Nodes (36): CashFlowChart(), CashFlowChartProps, Code(), InvoiceStatusChart(), InvoiceStatusChartProps, components, ConvexLogo(), GetStarted() (+28 more)
 
 ### Community 19 - "User Identity & Authentication"
 Cohesion: 0.15
@@ -235,7 +235,7 @@ Cohesion: 0.50
 Nodes (3): AI Agent Rules, Project Status, قوانين المطور المساعد (AI Agent Rules)
 
 ## Knowledge Gaps
-- **460 isolated node(s):** `extends`, `$schema`, `style`, `rsc`, `tsx` (+455 more)
+- **459 isolated node(s):** `extends`, `$schema`, `style`, `rsc`, `tsx` (+454 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **7 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
@@ -244,12 +244,12 @@ _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `Convex Quickstart` connect `Convex Query Optimization` to `Package Dependencies`?**
   _High betweenness centrality (0.028) - this node is a cross-community bridge._
-- **Why does `cn()` connect `Chat & Theme UI` to `Convex tsconfig Settings`, `Convex Backend API Router`?**
+- **Why does `Function guidelines` connect `Schema Update Operations` to `Package Dependencies`?**
   _High betweenness centrality (0.026) - this node is a cross-community bridge._
 - **What connects `extends`, `$schema`, `style` to the rest of the system?**
-  _460 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _459 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Chat & Theme UI` be split into smaller, more focused modules?**
-  _Cohesion score 0.07610993657505286 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.07092198581560284 - nodes in this community are weakly interconnected._
 - **Should `Convex Quickstart & Setup` be split into smaller, more focused modules?**
   _Cohesion score 0.04878048780487805 - nodes in this community are weakly interconnected._
 - **Should `Convex Performance Best Practices` be split into smaller, more focused modules?**

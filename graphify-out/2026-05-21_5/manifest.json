@@ -20,8 +20,8 @@
     "semantic_hash": "9b77af189a21a7a64e4bd7a426f64176"
   },
   "C:\\Users\\eyadh\\Desktop\\ReactAiAgent\\dashboard\\package.json": {
-    "mtime": 1779340301.234012,
-    "ast_hash": "93ad81a34e397a29cd914bb850e3c659",
+    "mtime": 1779339970.295369,
+    "ast_hash": "a46a57e623176e5b35a13e94c7ab226f",
     "semantic_hash": ""
   },
   "C:\\Users\\eyadh\\Desktop\\ReactAiAgent\\dashboard\\postcss.config.mjs": {
@@ -50,9 +50,9 @@
     "semantic_hash": "7831df54b0184c9a88a681bd02b3e9e4"
   },
   "C:\\Users\\eyadh\\Desktop\\ReactAiAgent\\dashboard\\.convex\\local\\default\\config.json": {
-    "mtime": 1779389089.702095,
-    "ast_hash": "8d796ccc4cc892f0beb156e57536c71a",
-    "semantic_hash": ""
+    "mtime": 1779329558.058658,
+    "ast_hash": "95162fb904f90e67f22db29680560add",
+    "semantic_hash": "95162fb904f90e67f22db29680560add"
   },
   "C:\\Users\\eyadh\\Desktop\\ReactAiAgent\\dashboard\\app\\layout.tsx": {
     "mtime": 1779327424.8617775,
@@ -130,9 +130,9 @@
     "semantic_hash": "3cb768b5df2c95447d61a0665a75e674"
   },
   "C:\\Users\\eyadh\\Desktop\\ReactAiAgent\\dashboard\\components\\ConvexClientProvider.tsx": {
-    "mtime": 1779389703.69505,
-    "ast_hash": "a2b86d20c2339443914e5419fb7c1e29",
-    "semantic_hash": ""
+    "mtime": 1779301684.0,
+    "ast_hash": "b7327d970f9f782ba1ee3c7eb6d98aa6",
+    "semantic_hash": "b7327d970f9f782ba1ee3c7eb6d98aa6"
   },
   "C:\\Users\\eyadh\\Desktop\\ReactAiAgent\\dashboard\\components\\ThemeToggle.tsx": {
     "mtime": 1779301684.0,
@@ -200,9 +200,9 @@
     "semantic_hash": "4a1eda6732bd0a382e278f768eea353d"
   },
   "C:\\Users\\eyadh\\Desktop\\ReactAiAgent\\dashboard\\convex\\_generated\\api.d.ts": {
-    "mtime": 1779340243.7069511,
-    "ast_hash": "fa5b4fd1d024c2793282fb5b274dd5ae",
-    "semantic_hash": ""
+    "mtime": 1779329562.6009657,
+    "ast_hash": "fd2b414b6b8456a1fa5a909dff0fb91c",
+    "semantic_hash": "fd2b414b6b8456a1fa5a909dff0fb91c"
   },
   "C:\\Users\\eyadh\\Desktop\\ReactAiAgent\\dashboard\\convex\\_generated\\api.js": {
     "mtime": 1779301684.0,
@@ -245,8 +245,8 @@
     "semantic_hash": ""
   },
   "C:\\Users\\eyadh\\Desktop\\ReactAiAgent\\dashboard\\pnpm-workspace.yaml": {
-    "mtime": 1779340799.1976843,
-    "ast_hash": "74b4f6762fd1c15d2869c9a6d0800883",
+    "mtime": 1779327400.0095096,
+    "ast_hash": "52f6cd536e242d8684b8b6c3ffc8591c",
     "semantic_hash": ""
   },
   "C:\\Users\\eyadh\\Desktop\\ReactAiAgent\\dashboard\\README.md": {
@@ -600,28 +600,28 @@
     "semantic_hash": ""
   },
   "C:\\Users\\eyadh\\Desktop\\ReactAiAgent\\dashboard\\app\\product\\dashboard\\page.tsx": {
-    "mtime": 1779389716.0222743,
-    "ast_hash": "9c5372af61b9d05c5e7130288cf95cda",
+    "mtime": 1779340039.594829,
+    "ast_hash": "e94096ff0dca9617eee1e680d63383ab",
     "semantic_hash": ""
   },
   "C:\\Users\\eyadh\\Desktop\\ReactAiAgent\\dashboard\\app\\product\\dashboard\\invoices\\page.tsx": {
-    "mtime": 1779390103.3798265,
-    "ast_hash": "ee7e5b8d6768adba3c13c2c028d24028",
+    "mtime": 1779340055.8816006,
+    "ast_hash": "fab43d92a17764f1d3fc95ff0fc79729",
     "semantic_hash": ""
   },
   "C:\\Users\\eyadh\\Desktop\\ReactAiAgent\\dashboard\\app\\product\\dashboard\\receipts\\page.tsx": {
-    "mtime": 1779389748.8986306,
-    "ast_hash": "254b5f640d4c08be4a0fdf4d1837f5f6",
+    "mtime": 1779340101.833087,
+    "ast_hash": "20d1aa49cfbab13e086513f296d64b61",
     "semantic_hash": ""
   },
   "C:\\Users\\eyadh\\Desktop\\ReactAiAgent\\dashboard\\app\\product\\dashboard\\settings\\page.tsx": {
-    "mtime": 1779389757.9337785,
-    "ast_hash": "2e22bb772782e1000cca479ee5fef28c",
+    "mtime": 1779340115.0725553,
+    "ast_hash": "5390dda26d6f6e8dab9ce25906d668e0",
     "semantic_hash": ""
   },
   "C:\\Users\\eyadh\\Desktop\\ReactAiAgent\\dashboard\\app\\product\\dashboard\\transactions\\page.tsx": {
-    "mtime": 1779389729.6672816,
-    "ast_hash": "fc3f6749556613c2a944def42157d11e",
+    "mtime": 1779340047.7439647,
+    "ast_hash": "4c813844719190b3f975a2d0e4de06aa",
     "semantic_hash": ""
   },
   "C:\\Users\\eyadh\\Desktop\\ReactAiAgent\\dashboard\\components\\CashFlowChart.tsx": {
@@ -630,8 +630,8 @@
     "semantic_hash": ""
   },
   "C:\\Users\\eyadh\\Desktop\\ReactAiAgent\\dashboard\\components\\DashboardNav.tsx": {
-    "mtime": 1779340478.47472,
-    "ast_hash": "7a07d2e6f588d2e5cc15e901053f481c",
+    "mtime": 1779339988.6720283,
+    "ast_hash": "fb89c7a157fa4e6826ee3d020e0b19e8",
     "semantic_hash": ""
   },
   "C:\\Users\\eyadh\\Desktop\\ReactAiAgent\\dashboard\\components\\InvoiceStatusChart.tsx": {
@@ -680,8 +680,8 @@
     "semantic_hash": ""
   },
   "C:\\Users\\eyadh\\Desktop\\ReactAiAgent\\dashboard\\convex\\transactions.ts": {
-    "mtime": 1779390124.758931,
-    "ast_hash": "416bb24345e8e9549442e55f014cefd9",
+    "mtime": 1779339847.169236,
+    "ast_hash": "edc70c0775ec48ba1c56d91fb3e3e3b5",
     "semantic_hash": ""
   }
 }

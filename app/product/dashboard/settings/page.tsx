@@ -2,7 +2,7 @@
 
 import React from "react";
 import { useOrganization, OrganizationProfile } from "@clerk/nextjs";
-import { useQuery, useMutation } from "convex/react";
+import { useQuery, useMutation, useConvexAuth } from "convex/react";
 import { api } from "@/convex/_generated/api";
 import { 
   Settings2, 
@@ -66,13 +66,15 @@ const PLANS = [
 
 export default function SettingsPage() {
   const { organization, membership } = useOrganization();
+  const { isAuthenticated } = useConvexAuth();
   const [activeTab, setActiveTab] = React.useState<"subscription" | "members">("subscription");
   const [upgradingId, setUpgradingId] = React.useState<string | null>(null);
 
   // Convex hooks
-  const orgPlan = useQuery(api.orgs.getOrgPlan, {
-    orgId: organization?.id ?? "",
-  });
+  const orgPlan = useQuery(
+    api.orgs.getOrgPlan,
+    isAuthenticated && organization?.id ? { orgId: organization.id } : "skip"
+  );
 
   const updateOrgPlan = useMutation(api.orgs.updateOrgPlan);
 

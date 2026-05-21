@@ -2,7 +2,7 @@
 
 import React from "react";
 import { useOrganization } from "@clerk/nextjs";
-import { useQuery } from "convex/react";
+import { useQuery, useConvexAuth } from "convex/react";
 import { api } from "@/convex/_generated/api";
 import { 
   TrendingUp, 
@@ -23,19 +23,23 @@ import Link from "next/link";
 
 export default function DashboardHome() {
   const { organization } = useOrganization();
+  const { isAuthenticated } = useConvexAuth();
   
   // Real-time B2B ledger data hooks
-  const transactions = useQuery(api.transactions.listTransactions, {
-    orgId: organization?.id ?? "",
-  });
+  const transactions = useQuery(
+    api.transactions.listTransactions,
+    isAuthenticated && organization?.id ? { orgId: organization.id } : "skip"
+  );
   
-  const invoices = useQuery(api.invoices.listInvoices, {
-    orgId: organization?.id ?? "",
-  });
+  const invoices = useQuery(
+    api.invoices.listInvoices,
+    isAuthenticated && organization?.id ? { orgId: organization.id } : "skip"
+  );
 
-  const orgPlan = useQuery(api.orgs.getOrgPlan, {
-    orgId: organization?.id ?? "",
-  });
+  const orgPlan = useQuery(
+    api.orgs.getOrgPlan,
+    isAuthenticated && organization?.id ? { orgId: organization.id } : "skip"
+  );
 
   if (!organization) return null;
 

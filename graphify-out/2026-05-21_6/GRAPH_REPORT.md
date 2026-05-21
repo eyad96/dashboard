@@ -1,7 +1,7 @@
 # Graph Report - dashboard  (2026-05-21)
 
 ## Corpus Check
-- 115 files · ~57,392 words
+- 115 files · ~57,216 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
@@ -75,12 +75,12 @@
 ## Surprising Connections (you probably didn't know these)
 - `cn()` --calls--> `clsx`  [INFERRED]
   lib/utils.ts → package.json
-- `MenuLink()` --calls--> `cn()`  [EXTRACTED]
-  app/product/layout.tsx → lib/utils.ts
 - `DialogHeader()` --calls--> `cn()`  [EXTRACTED]
   components/ui/dialog.tsx → lib/utils.ts
 - `DialogFooter()` --calls--> `cn()`  [EXTRACTED]
   components/ui/dialog.tsx → lib/utils.ts
+- `MenuLink()` --calls--> `cn()`  [EXTRACTED]
+  app/product/layout.tsx → lib/utils.ts
 - `DropdownMenuShortcut()` --calls--> `cn()`  [EXTRACTED]
   components/ui/dropdown-menu.tsx → lib/utils.ts
 
@@ -235,7 +235,7 @@ Cohesion: 0.50
 Nodes (3): AI Agent Rules, Project Status, قوانين المطور المساعد (AI Agent Rules)
 
 ## Knowledge Gaps
-- **460 isolated node(s):** `extends`, `$schema`, `style`, `rsc`, `tsx` (+455 more)
+- **460 isolated node(s):** `graphify`, `Workflow: graphify`, `PLANS`, `CashFlowChartProps`, `navItems` (+455 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **7 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
@@ -246,7 +246,7 @@ _Questions this graph is uniquely positioned to answer:_
   _High betweenness centrality (0.028) - this node is a cross-community bridge._
 - **Why does `cn()` connect `Chat & Theme UI` to `Convex tsconfig Settings`, `Convex Backend API Router`?**
   _High betweenness centrality (0.026) - this node is a cross-community bridge._
-- **What connects `extends`, `$schema`, `style` to the rest of the system?**
+- **What connects `graphify`, `Workflow: graphify`, `PLANS` to the rest of the system?**
   _460 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Chat & Theme UI` be split into smaller, more focused modules?**
   _Cohesion score 0.07610993657505286 - nodes in this community are weakly interconnected._

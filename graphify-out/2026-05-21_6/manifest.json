@@ -130,9 +130,9 @@
     "semantic_hash": "3cb768b5df2c95447d61a0665a75e674"
   },
   "C:\\Users\\eyadh\\Desktop\\ReactAiAgent\\dashboard\\components\\ConvexClientProvider.tsx": {
-    "mtime": 1779389703.69505,
-    "ast_hash": "a2b86d20c2339443914e5419fb7c1e29",
-    "semantic_hash": ""
+    "mtime": 1779301684.0,
+    "ast_hash": "b7327d970f9f782ba1ee3c7eb6d98aa6",
+    "semantic_hash": "b7327d970f9f782ba1ee3c7eb6d98aa6"
   },
   "C:\\Users\\eyadh\\Desktop\\ReactAiAgent\\dashboard\\components\\ThemeToggle.tsx": {
     "mtime": 1779301684.0,
@@ -600,28 +600,28 @@
     "semantic_hash": ""
   },
   "C:\\Users\\eyadh\\Desktop\\ReactAiAgent\\dashboard\\app\\product\\dashboard\\page.tsx": {
-    "mtime": 1779389716.0222743,
-    "ast_hash": "9c5372af61b9d05c5e7130288cf95cda",
+    "mtime": 1779389244.3196442,
+    "ast_hash": "ac7a34550f82feafe2d79998313d2a4f",
     "semantic_hash": ""
   },
   "C:\\Users\\eyadh\\Desktop\\ReactAiAgent\\dashboard\\app\\product\\dashboard\\invoices\\page.tsx": {
-    "mtime": 1779390103.3798265,
-    "ast_hash": "ee7e5b8d6768adba3c13c2c028d24028",
+    "mtime": 1779389253.9580915,
+    "ast_hash": "485a70a1bc68cea1dcfbae5a7ee87626",
     "semantic_hash": ""
   },
   "C:\\Users\\eyadh\\Desktop\\ReactAiAgent\\dashboard\\app\\product\\dashboard\\receipts\\page.tsx": {
-    "mtime": 1779389748.8986306,
-    "ast_hash": "254b5f640d4c08be4a0fdf4d1837f5f6",
+    "mtime": 1779389258.0782745,
+    "ast_hash": "e3f8f2f0e3d202262ac5f3b34609b904",
     "semantic_hash": ""
   },
   "C:\\Users\\eyadh\\Desktop\\ReactAiAgent\\dashboard\\app\\product\\dashboard\\settings\\page.tsx": {
-    "mtime": 1779389757.9337785,
-    "ast_hash": "2e22bb772782e1000cca479ee5fef28c",
+    "mtime": 1779389262.8537161,
+    "ast_hash": "ca3e45caf0b1a6e593f0c8b85b42f33a",
     "semantic_hash": ""
   },
   "C:\\Users\\eyadh\\Desktop\\ReactAiAgent\\dashboard\\app\\product\\dashboard\\transactions\\page.tsx": {
-    "mtime": 1779389729.6672816,
-    "ast_hash": "fc3f6749556613c2a944def42157d11e",
+    "mtime": 1779389248.8373818,
+    "ast_hash": "ee6a61ffe0fc26948def80580d1f8262",
     "semantic_hash": ""
   },
   "C:\\Users\\eyadh\\Desktop\\ReactAiAgent\\dashboard\\components\\CashFlowChart.tsx": {
@@ -680,8 +680,8 @@
     "semantic_hash": ""
   },
   "C:\\Users\\eyadh\\Desktop\\ReactAiAgent\\dashboard\\convex\\transactions.ts": {
-    "mtime": 1779390124.758931,
-    "ast_hash": "416bb24345e8e9549442e55f014cefd9",
+    "mtime": 1779339847.169236,
+    "ast_hash": "edc70c0775ec48ba1c56d91fb3e3e3b5",
     "semantic_hash": ""
   }
 }

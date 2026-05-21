@@ -2,7 +2,7 @@
 
 import React from "react";
 import { useOrganization } from "@clerk/nextjs";
-import { useQuery, useMutation, useAction } from "convex/react";
+import { useQuery, useMutation, useAction, useConvexAuth } from "convex/react";
 import { api } from "@/convex/_generated/api";
 import { 
   ScanLine, 
@@ -26,6 +26,7 @@ import Link from "next/link";
 
 export default function ReceiptsPage() {
   const { organization, membership } = useOrganization();
+  const { isAuthenticated } = useConvexAuth();
   const fileInputRef = React.useRef<HTMLInputElement>(null);
 
   // Loading and action state
@@ -34,13 +35,15 @@ export default function ReceiptsPage() {
   const [convertedIds, setConvertedIds] = React.useState<Record<string, boolean>>({});
 
   // Convex hooks
-  const orgPlan = useQuery(api.orgs.getOrgPlan, {
-    orgId: organization?.id ?? "",
-  });
+  const orgPlan = useQuery(
+    api.orgs.getOrgPlan,
+    isAuthenticated && organization?.id ? { orgId: organization.id } : "skip"
+  );
 
-  const receipts = useQuery(api.receipts.listReceipts, {
-    orgId: organization?.id ?? "",
-  });
+  const receipts = useQuery(
+    api.receipts.listReceipts,
+    isAuthenticated && organization?.id ? { orgId: organization.id } : "skip"
+  );
 
   const generateUploadUrl = useMutation(api.receipts.generateUploadUrl);
   const saveReceipt = useMutation(api.receipts.saveReceipt);
