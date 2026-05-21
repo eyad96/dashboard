@@ -1,151 +1,282 @@
-import { ConvexLogo } from "@/app/(splash)/GetStarted/ConvexLogo";
-import { Code } from "@/components/Code";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import {
-  CodeIcon,
-  MagicWandIcon,
-  PlayIcon,
-  StackIcon,
-} from "@radix-ui/react-icons";
+"use client";
+
+import React from "react";
 import Link from "next/link";
-import { ReactNode } from "react";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import { 
+  TrendingUp, 
+  Receipt, 
+  Users, 
+  BrainCircuit, 
+  Check, 
+  FileText, 
+  ShieldCheck, 
+  Zap, 
+  Sparkles
+} from "lucide-react";
 
 export const GetStarted = () => {
   return (
-    <div className="flex grow flex-col">
-      <div className="container mb-20 flex grow flex-col justify-center">
-        <h1 className="mb-8 mt-16 flex flex-col items-center gap-8 text-center text-6xl font-extrabold leading-none tracking-tight">
-          Your app powered by
-          <ConvexLogo width={377} height={44} />
-        </h1>
-        <div className="mb-8 text-center text-lg text-muted-foreground">
-          Build a realtime full-stack app in no time.
+    <div className="flex grow flex-col bg-background text-foreground selection:bg-emerald-500/30">
+      
+      {/* Hero Section */}
+      <section className="relative overflow-hidden pt-20 pb-16 md:pt-32 md:pb-24 border-b">
+        <div className="absolute inset-0 bg-gradient-to-tr from-emerald-500/10 via-background to-teal-500/5 -z-10" />
+        <div className="container px-4 text-center max-w-4xl mx-auto flex flex-col items-center">
+          
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border bg-emerald-500/5 border-emerald-500/20 text-emerald-600 dark:text-emerald-400 text-xs font-semibold mb-6 animate-pulse">
+            <Sparkles className="h-3 w-3" />
+            Next-Gen B2B Ledger Infrastructure
+          </div>
+
+          <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight leading-none mb-6">
+            Smart Accounting for
+            <span className="block mt-2 bg-gradient-to-r from-emerald-500 via-teal-500 to-emerald-600 bg-clip-text text-transparent">
+              Modern Organizations
+            </span>
+          </h1>
+
+          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mb-10 leading-relaxed">
+            Manage ledgers, generate elegant invoices, delegate permissions with Clerk RBAC, and automate receipt tracking using Gemini-powered AI OCR. Built for seamless B2B scaling.
+          </p>
+
+          <div className="flex flex-col sm:flex-row gap-4 mb-14">
+            <Button asChild size="lg" className="bg-emerald-600 hover:bg-emerald-500 text-white font-semibold shadow-lg shadow-emerald-600/20 rounded-xl px-8">
+              <Link href="/product/dashboard">Go to B2B Dashboard</Link>
+            </Button>
+            <Button asChild size="lg" variant="outline" className="rounded-xl px-8 border-neutral-300 dark:border-neutral-800">
+              <Link href="/product">Developer Chat Feed</Link>
+            </Button>
+          </div>
+
+          {/* Quick Stats Grid */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 border rounded-2xl p-6 bg-background/50 backdrop-blur-md w-full max-w-3xl">
+            <div className="text-center">
+              <div className="text-2xl font-bold text-emerald-600 dark:text-emerald-400">99.9%</div>
+              <div className="text-xs text-muted-foreground mt-0.5">Real-time Sync</div>
+            </div>
+            <div className="text-center border-l">
+              <div className="text-2xl font-bold text-emerald-600 dark:text-emerald-400">&lt; 2s</div>
+              <div className="text-xs text-muted-foreground mt-0.5">AI OCR Scanning</div>
+            </div>
+            <div className="text-center border-l">
+              <div className="text-2xl font-bold text-emerald-600 dark:text-emerald-400">100%</div>
+              <div className="text-xs text-muted-foreground mt-0.5">B2B Org-Isolated</div>
+            </div>
+            <div className="text-center border-l">
+              <div className="text-2xl font-bold text-emerald-600 dark:text-emerald-400">Zero</div>
+              <div className="text-xs text-muted-foreground mt-0.5">Data Leaks</div>
+            </div>
+          </div>
+
         </div>
-        <div className="mb-16 flex justify-center gap-4">
-          <Button asChild size="lg">
-            <Link href="/product">Get Started</Link>
-          </Button>
-          <Button asChild size="lg" variant="outline">
-            <Link href="https://docs.convex.dev/home">Convex docs</Link>
-          </Button>
-        </div>
-        <div className="flex flex-col gap-4 bg-muted/50 p-12 dark:bg-transparent">
-          <h2 className="mb-1 text-center text-3xl font-bold md:text-4xl ">
-            Next steps
+      </section>
+
+      {/* Feature Pillars */}
+      <section className="py-20 bg-muted/20">
+        <div className="container px-4 max-w-5xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold text-center tracking-tight mb-14">
+            Powerful B2B Pillars Built from Scratch
           </h2>
-          <div className="mb-1 text-center text-muted-foreground">
-            This template is a starting point for building your web application.
-          </div>
-          <div className="grid gap-4 md:grid-cols-2">
-            <Card>
-              <CardHeader>
-                <CardTitle className="flex gap-2">
-                  <PlayIcon /> Play with the app
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                Click on{" "}
-                <Link
-                  href="/product"
-                  className="font-medium underline underline-offset-4 hover:no-underline"
-                >
-                  Get Started
-                </Link>{" "}
-                to see the app in action.
-              </CardContent>
-            </Card>
-            <Card>
-              <CardHeader>
-                <CardTitle className="flex gap-2">
-                  <StackIcon /> Inspect your database
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                The{" "}
-                <Link
-                  href="https://dashboard.convex.dev/"
-                  className="underline underline-offset-4 hover:no-underline"
-                  target="_blank"
-                >
-                  Convex dashboard
-                </Link>{" "}
-                is already open in another window.
-              </CardContent>
-            </Card>
-            <Card>
-              <CardHeader>
-                <CardTitle className="flex gap-2">
-                  <CodeIcon />
-                  Change the backend
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                Edit <Code>convex/messages.ts</Code> to change the backend
-                functionality.
-              </CardContent>
-            </Card>
-            <Card>
-              <CardHeader>
-                <CardTitle className="flex gap-2">
-                  <MagicWandIcon />
-                  Change the frontend
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                Edit <Code>app/page.tsx</Code> to change your frontend.
-              </CardContent>
-            </Card>
+          
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="flex flex-col gap-4 p-6 bg-background border rounded-2xl shadow-sm hover:shadow-md transition-shadow">
+              <div className="h-10 w-10 rounded-xl bg-emerald-500/10 flex items-center justify-center text-emerald-600 dark:text-emerald-400">
+                <Users className="h-5.5 w-5.5" />
+              </div>
+              <h3 className="font-bold text-lg">Clerk Multi-Tenant & RBAC</h3>
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                Partition bookkeeping automatically. Assign dedicated roles such as **Accountants** (write ledger access) and **Viewers** (read-only graphs).
+              </p>
+            </div>
+
+            <div className="flex flex-col gap-4 p-6 bg-background border rounded-2xl shadow-sm hover:shadow-md transition-shadow">
+              <div className="h-10 w-10 rounded-xl bg-teal-500/10 flex items-center justify-center text-teal-600 dark:text-teal-400">
+                <BrainCircuit className="h-5.5 w-5.5" />
+              </div>
+              <h3 className="font-bold text-lg">Gemini AI OCR Scanner</h3>
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                Upload business receipts to scan them. Our integrated Gemini structured model parses merchant names, totals, and timestamps into the ledger.
+              </p>
+            </div>
+
+            <div className="flex flex-col gap-4 p-6 bg-background border rounded-2xl shadow-sm hover:shadow-md transition-shadow">
+              <div className="h-10 w-10 rounded-xl bg-emerald-500/10 flex items-center justify-center text-emerald-600 dark:text-emerald-400">
+                <Receipt className="h-5.5 w-5.5" />
+              </div>
+              <h3 className="font-bold text-lg">Elegant Seat-Based Invoicing</h3>
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                Configure Clerk seat-based billing so plans automatically adjust price based on your active team member count.
+              </p>
+            </div>
           </div>
         </div>
-      </div>
-      <div className="px-20 pb-20">
-        <div className="container">
-          <h2 className="mb-6 text-center text-2xl font-bold">
-            Helpful resources
-          </h2>
-          <div className="grid gap-6 md:grid-cols-4">
-            <Resource title="Convex Docs" href="https://docs.convex.dev/home">
-              Read comprehensive documentation for all Convex features.
-            </Resource>
-            <Resource title="Stack articles" href="https://stack.convex.dev/">
-              Learn about best practices, use cases, and more from a growing
-              collection of articles, videos, and walkthroughs.
-            </Resource>
-            <Resource title="Discord" href="https://www.convex.dev/community">
-              Join our developer community to ask questions, trade tips &
-              tricks, and show off your projects.
-            </Resource>
-            <Resource title="Search them all" href="https://search.convex.dev/">
-              Get unblocked quickly by searching across the docs, Stack, and
-              Discord chats.
-            </Resource>
+      </section>
+
+      {/* Pricing Matrix Section */}
+      <section className="py-20 border-t">
+        <div className="container px-4 max-w-5xl mx-auto">
+          <div className="text-center max-w-2xl mx-auto mb-16">
+            <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight mb-4">
+              Flexible Plans to Fuel B2B Scaling
+            </h2>
+            <p className="text-muted-foreground">
+              Integrate Clerk Billing with Stripe dynamically. All plans scale with active organization seats.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8 items-start">
+            
+            {/* Free Tier */}
+            <Card className="border-neutral-200 dark:border-neutral-800 rounded-2xl shadow-sm">
+              <CardHeader className="p-6">
+                <CardTitle className="text-xl font-bold">Free Plan</CardTitle>
+                <CardDescription className="text-xs">Ideal for solopreneurs</CardDescription>
+                <div className="mt-4 flex items-baseline gap-1">
+                  <span className="text-3xl font-extrabold">$0</span>
+                  <span className="text-muted-foreground text-xs">/ month</span>
+                </div>
+                <div className="text-[10px] font-semibold text-emerald-600 dark:text-emerald-400 mt-2">Max 1 seat quota</div>
+              </CardHeader>
+              <CardContent className="px-6 pb-6 pt-0 flex flex-col gap-3">
+                <hr />
+                <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                  <Check className="h-4 w-4 text-emerald-500 shrink-0" />
+                  <span>Read-only Dashboard</span>
+                </div>
+                <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                  <Check className="h-4 w-4 text-emerald-500 shrink-0" />
+                  <span>Basic Cash Flow charts</span>
+                </div>
+                <div className="flex items-center gap-2 text-sm text-muted-foreground line-through opacity-40">
+                  <XIcon className="h-4 w-4 shrink-0" />
+                  <span>Multi-Seat Accountant Roles</span>
+                </div>
+                <div className="flex items-center gap-2 text-sm text-muted-foreground line-through opacity-40">
+                  <XIcon className="h-4 w-4 shrink-0" />
+                  <span>Gemini AI Receipt OCR</span>
+                </div>
+              </CardContent>
+              <CardFooter className="px-6 pb-6">
+                <Button asChild className="w-full bg-neutral-900 hover:bg-neutral-800 dark:bg-neutral-100 dark:hover:bg-neutral-200 text-background font-semibold rounded-xl">
+                  <Link href="/product/dashboard">Start Free</Link>
+                </Button>
+              </CardFooter>
+            </Card>
+
+            {/* Pro Tier */}
+            <Card className="border-emerald-500 rounded-2xl shadow-lg relative bg-background">
+              <div className="absolute top-0 right-1/2 translate-x-1/2 -translate-y-1/2 px-3 py-1 rounded-full bg-emerald-500 text-white font-bold text-[10px] uppercase tracking-wider shadow-sm">
+                Most Popular
+              </div>
+              <CardHeader className="p-6">
+                <CardTitle className="text-xl font-bold flex items-center gap-1.5">
+                  Pro Plan 
+                  <Zap className="h-4 w-4 text-emerald-500 fill-emerald-500" />
+                </CardTitle>
+                <CardDescription className="text-xs">Perfect for scaling teams</CardDescription>
+                <div className="mt-4 flex items-baseline gap-1">
+                  <span className="text-3xl font-extrabold">$19</span>
+                  <span className="text-muted-foreground text-xs">/ month</span>
+                </div>
+                <div className="text-[10px] font-semibold text-emerald-600 dark:text-emerald-400 mt-2">+ $5/month per additional seat</div>
+              </CardHeader>
+              <CardContent className="px-6 pb-6 pt-0 flex flex-col gap-3">
+                <hr />
+                <div className="flex items-center gap-2 text-sm">
+                  <Check className="h-4 w-4 text-emerald-500 shrink-0" />
+                  <span>Unlimited Ledger Transactions</span>
+                </div>
+                <div className="flex items-center gap-2 text-sm">
+                  <Check className="h-4 w-4 text-emerald-500 shrink-0" />
+                  <span>Interactive Invoicing Dashboard</span>
+                </div>
+                <div className="flex items-center gap-2 text-sm">
+                  <Check className="h-4 w-4 text-emerald-500 shrink-0" />
+                  <span>Clerk Accountant/Viewer RBAC</span>
+                </div>
+                <div className="flex items-center gap-2 text-sm text-muted-foreground line-through opacity-40">
+                  <XIcon className="h-4 w-4 shrink-0" />
+                  <span>Gemini AI Receipt OCR</span>
+                </div>
+              </CardContent>
+              <CardFooter className="px-6 pb-6">
+                <Button asChild className="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-semibold rounded-xl shadow-md shadow-emerald-500/10">
+                  <Link href="/product/dashboard">Upgrade to Pro</Link>
+                </Button>
+              </CardFooter>
+            </Card>
+
+            {/* Business Tier */}
+            <Card className="border-neutral-200 dark:border-neutral-800 rounded-2xl shadow-sm">
+              <CardHeader className="p-6">
+                <CardTitle className="text-xl font-bold flex items-center gap-1.5">
+                  Business Plan
+                  <Sparkles className="h-4 w-4 text-teal-500 fill-teal-500" />
+                </CardTitle>
+                <CardDescription className="text-xs">Advanced features & automation</CardDescription>
+                <div className="mt-4 flex items-baseline gap-1">
+                  <span className="text-3xl font-extrabold">$49</span>
+                  <span className="text-muted-foreground text-xs">/ month</span>
+                </div>
+                <div className="text-[10px] font-semibold text-emerald-600 dark:text-emerald-400 mt-2">+ $10/month per additional seat</div>
+              </CardHeader>
+              <CardContent className="px-6 pb-6 pt-0 flex flex-col gap-3">
+                <hr />
+                <div className="flex items-center gap-2 text-sm">
+                  <Check className="h-4 w-4 text-emerald-500 shrink-0" />
+                  <span className="font-semibold text-emerald-600 dark:text-emerald-400">Gemini AI Receipt Scanner (OCR)</span>
+                </div>
+                <div className="flex items-center gap-2 text-sm">
+                  <Check className="h-4 w-4 text-emerald-500 shrink-0" />
+                  <span>Unlimited Invoices & Transactions</span>
+                </div>
+                <div className="flex items-center gap-2 text-sm">
+                  <Check className="h-4 w-4 text-emerald-500 shrink-0" />
+                  <span>Advanced B2B Seat Billing Allocation</span>
+                </div>
+                <div className="flex items-center gap-2 text-sm">
+                  <Check className="h-4 w-4 text-emerald-500 shrink-0" />
+                  <span>Priority Premium Support 24/7</span>
+                </div>
+              </CardContent>
+              <CardFooter className="px-6 pb-6">
+                <Button asChild className="w-full bg-neutral-900 hover:bg-neutral-800 dark:bg-neutral-100 dark:hover:bg-neutral-200 text-background font-semibold rounded-xl">
+                  <Link href="/product/dashboard">Go Business</Link>
+                </Button>
+              </CardFooter>
+            </Card>
+
           </div>
         </div>
-      </div>
+      </section>
+
+      {/* Helpful Links footer */}
+      <footer className="border-t py-12 bg-neutral-50 dark:bg-neutral-950/20">
+        <div className="container px-4 text-center max-w-md mx-auto text-xs text-muted-foreground">
+          <p>© 2026 Antigravity Books Inc. All rights reserved.</p>
+          <p className="mt-2">
+            Secure multi-tenant operations mapped over Convex endpoints.
+          </p>
+        </div>
+      </footer>
+
     </div>
   );
 };
 
-function Resource({
-  title,
-  children,
-  href,
-}: {
-  title: string;
-  children: ReactNode;
-  href: string;
-}) {
+function XIcon({ className }: { className?: string }) {
   return (
-    <Button
-      asChild
-      variant="secondary"
-      className="flex h-auto flex-col items-start justify-start gap-4 whitespace-normal p-4 font-normal"
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      strokeWidth={2}
+      stroke="currentColor"
+      className={className}
     >
-      <Link href={href}>
-        <div className="text-sm font-bold">{title}</div>
-        <div className="text-muted-foreground">{children}</div>
-      </Link>
-    </Button>
+      <path strokeLinecap="round" strokeLinejoin="round" d="M6 18 18 6M6 6l12 12" />
+    </svg>
   );
 }
