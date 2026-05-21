@@ -216,7 +216,7 @@
       "source_file": "package.json",
       "source_location": "L1",
       "id": "package_json",
-      "community": 52,
+      "community": 4,
       "norm_label": "package.json"
     },
     {
@@ -225,7 +225,7 @@
       "source_file": "package.json",
       "source_location": "L2",
       "id": "dashboard_package_name",
-      "community": 52,
+      "community": 4,
       "norm_label": "name"
     },
     {
@@ -234,7 +234,7 @@
       "source_file": "package.json",
       "source_location": "L3",
       "id": "dashboard_package_version",
-      "community": 52,
+      "community": 4,
       "norm_label": "version"
     },
     {
@@ -243,7 +243,7 @@
       "source_file": "package.json",
       "source_location": "L4",
       "id": "dashboard_package_private",
-      "community": 52,
+      "community": 4,
       "norm_label": "private"
     },
     {
@@ -252,7 +252,7 @@
       "source_file": "package.json",
       "source_location": "L5",
       "id": "dashboard_package_scripts",
-      "community": 52,
+      "community": 4,
       "norm_label": "scripts"
     },
     {
@@ -261,7 +261,7 @@
       "source_file": "package.json",
       "source_location": "L6",
       "id": "dashboard_package_scripts_dev",
-      "community": 52,
+      "community": 4,
       "norm_label": "dev"
     },
     {
@@ -270,7 +270,7 @@
       "source_file": "package.json",
       "source_location": "L7",
       "id": "dashboard_package_scripts_build",
-      "community": 52,
+      "community": 4,
       "norm_label": "build"
     },
     {
@@ -279,7 +279,7 @@
       "source_file": "package.json",
       "source_location": "L8",
       "id": "dashboard_package_scripts_start",
-      "community": 52,
+      "community": 4,
       "norm_label": "start"
     },
     {
@@ -288,23 +288,14 @@
       "source_file": "package.json",
       "source_location": "L9",
       "id": "dashboard_package_scripts_lint",
-      "community": 52,
+      "community": 4,
       "norm_label": "lint"
-    },
-    {
-      "label": "test",
-      "file_type": "code",
-      "source_file": "package.json",
-      "source_location": "L10",
-      "id": "dashboard_package_scripts_test",
-      "community": 52,
-      "norm_label": "test"
     },
     {
       "label": "dependencies",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L12",
+      "source_location": "L11",
       "id": "dashboard_package_dependencies",
       "community": 4,
       "norm_label": "dependencies"
@@ -313,7 +304,7 @@
       "label": "@clerk/nextjs",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L13",
+      "source_location": "L12",
       "id": "dashboard_package_dependencies_clerk_nextjs",
       "community": 4,
       "norm_label": "@clerk/nextjs"
@@ -322,7 +313,7 @@
       "label": "@radix-ui/react-dialog",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L14",
+      "source_location": "L13",
       "id": "dashboard_package_dependencies_radix_ui_react_dialog",
       "community": 4,
       "norm_label": "@radix-ui/react-dialog"
@@ -331,7 +322,7 @@
       "label": "@radix-ui/react-dropdown-menu",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L15",
+      "source_location": "L14",
       "id": "dashboard_package_dependencies_radix_ui_react_dropdown_menu",
       "community": 4,
       "norm_label": "@radix-ui/react-dropdown-menu"
@@ -340,7 +331,7 @@
       "label": "@radix-ui/react-icons",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L16",
+      "source_location": "L15",
       "id": "dashboard_package_dependencies_radix_ui_react_icons",
       "community": 4,
       "norm_label": "@radix-ui/react-icons"
@@ -349,7 +340,7 @@
       "label": "@radix-ui/react-label",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L17",
+      "source_location": "L16",
       "id": "dashboard_package_dependencies_radix_ui_react_label",
       "community": 4,
       "norm_label": "@radix-ui/react-label"
@@ -358,7 +349,7 @@
       "label": "@radix-ui/react-popover",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L18",
+      "source_location": "L17",
       "id": "dashboard_package_dependencies_radix_ui_react_popover",
       "community": 4,
       "norm_label": "@radix-ui/react-popover"
@@ -367,7 +358,7 @@
       "label": "@radix-ui/react-select",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L19",
+      "source_location": "L18",
       "id": "dashboard_package_dependencies_radix_ui_react_select",
       "community": 4,
       "norm_label": "@radix-ui/react-select"
@@ -376,7 +367,7 @@
       "label": "@radix-ui/react-slot",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L20",
+      "source_location": "L19",
       "id": "dashboard_package_dependencies_radix_ui_react_slot",
       "community": 4,
       "norm_label": "@radix-ui/react-slot"
@@ -385,7 +376,7 @@
       "label": "@radix-ui/react-toggle",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L21",
+      "source_location": "L20",
       "id": "dashboard_package_dependencies_radix_ui_react_toggle",
       "community": 4,
       "norm_label": "@radix-ui/react-toggle"
@@ -394,7 +385,7 @@
       "label": "@radix-ui/react-toggle-group",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L22",
+      "source_location": "L21",
       "id": "dashboard_package_dependencies_radix_ui_react_toggle_group",
       "community": 4,
       "norm_label": "@radix-ui/react-toggle-group"
@@ -403,7 +394,7 @@
       "label": "class-variance-authority",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L23",
+      "source_location": "L22",
       "id": "dashboard_package_dependencies_class_variance_authority",
       "community": 4,
       "norm_label": "class-variance-authority"
@@ -412,7 +403,7 @@
       "label": "clsx",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L24",
+      "source_location": "L23",
       "id": "dashboard_package_dependencies_clsx",
       "community": 4,
       "norm_label": "clsx"
@@ -421,7 +412,7 @@
       "label": "convex",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L25",
+      "source_location": "L24",
       "id": "dashboard_package_dependencies_convex",
       "community": 4,
       "norm_label": "convex"
@@ -430,7 +421,7 @@
       "label": "lucide-react",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L26",
+      "source_location": "L25",
       "id": "dashboard_package_dependencies_lucide_react",
       "community": 4,
       "norm_label": "lucide-react"
@@ -439,7 +430,7 @@
       "label": "next",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L27",
+      "source_location": "L26",
       "id": "dashboard_package_dependencies_next",
       "community": 4,
       "norm_label": "next"
@@ -448,7 +439,7 @@
       "label": "next-themes",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L28",
+      "source_location": "L27",
       "id": "dashboard_package_dependencies_next_themes",
       "community": 4,
       "norm_label": "next-themes"
@@ -457,7 +448,7 @@
       "label": "npm-run-all2",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L29",
+      "source_location": "L28",
       "id": "dashboard_package_dependencies_npm_run_all2",
       "community": 4,
       "norm_label": "npm-run-all2"
@@ -466,7 +457,7 @@
       "label": "openai",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L30",
+      "source_location": "L29",
       "id": "dashboard_package_dependencies_openai",
       "community": 4,
       "norm_label": "openai"
@@ -475,7 +466,7 @@
       "label": "react",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L31",
+      "source_location": "L30",
       "id": "dashboard_package_dependencies_react",
       "community": 4,
       "norm_label": "react"
@@ -484,7 +475,7 @@
       "label": "react-dom",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L32",
+      "source_location": "L31",
       "id": "dashboard_package_dependencies_react_dom",
       "community": 4,
       "norm_label": "react-dom"
@@ -493,7 +484,7 @@
       "label": "recharts",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L33",
+      "source_location": "L32",
       "id": "dashboard_package_dependencies_recharts",
       "community": 4,
       "norm_label": "recharts"
@@ -502,7 +493,7 @@
       "label": "svix",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L34",
+      "source_location": "L33",
       "id": "dashboard_package_dependencies_svix",
       "community": 4,
       "norm_label": "svix"
@@ -511,7 +502,7 @@
       "label": "tailwind-merge",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L35",
+      "source_location": "L34",
       "id": "dashboard_package_dependencies_tailwind_merge",
       "community": 4,
       "norm_label": "tailwind-merge"
@@ -520,7 +511,7 @@
       "label": "tailwindcss-animate",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L36",
+      "source_location": "L35",
       "id": "dashboard_package_dependencies_tailwindcss_animate",
       "community": 4,
       "norm_label": "tailwindcss-animate"
@@ -529,7 +520,7 @@
       "label": "zod",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L37",
+      "source_location": "L36",
       "id": "dashboard_package_dependencies_zod",
       "community": 4,
       "norm_label": "zod"
@@ -538,100 +529,91 @@
       "label": "devDependencies",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L39",
+      "source_location": "L38",
       "id": "dashboard_package_devdependencies",
-      "community": 52,
+      "community": 4,
       "norm_label": "devdependencies"
     },
     {
       "label": "@types/node",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L40",
+      "source_location": "L39",
       "id": "dashboard_package_devdependencies_types_node",
-      "community": 52,
+      "community": 4,
       "norm_label": "@types/node"
     },
     {
       "label": "@types/react",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L41",
+      "source_location": "L40",
       "id": "dashboard_package_devdependencies_types_react",
-      "community": 52,
+      "community": 4,
       "norm_label": "@types/react"
     },
     {
       "label": "@types/react-dom",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L42",
+      "source_location": "L41",
       "id": "dashboard_package_devdependencies_types_react_dom",
-      "community": 52,
+      "community": 4,
       "norm_label": "@types/react-dom"
     },
     {
       "label": "eslint",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L43",
+      "source_location": "L42",
       "id": "dashboard_package_devdependencies_eslint",
-      "community": 52,
+      "community": 4,
       "norm_label": "eslint"
     },
     {
       "label": "eslint-config-next",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L44",
+      "source_location": "L43",
       "id": "dashboard_package_devdependencies_eslint_config_next",
-      "community": 52,
+      "community": 4,
       "norm_label": "eslint-config-next"
     },
     {
       "label": "postcss",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L45",
+      "source_location": "L44",
       "id": "dashboard_package_devdependencies_postcss",
-      "community": 52,
+      "community": 4,
       "norm_label": "postcss"
     },
     {
       "label": "prettier",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L46",
+      "source_location": "L45",
       "id": "dashboard_package_devdependencies_prettier",
-      "community": 52,
+      "community": 4,
       "norm_label": "prettier"
     },
     {
       "label": "tailwindcss",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L47",
+      "source_location": "L46",
       "id": "dashboard_package_devdependencies_tailwindcss",
-      "community": 52,
+      "community": 4,
       "norm_label": "tailwindcss"
     },
     {
       "label": "typescript",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L48",
+      "source_location": "L47",
       "id": "dashboard_package_devdependencies_typescript",
-      "community": 52,
+      "community": 4,
       "norm_label": "typescript"
-    },
-    {
-      "label": "vitest",
-      "file_type": "code",
-      "source_file": "package.json",
-      "source_location": "L49",
-      "id": "dashboard_package_devdependencies_vitest",
-      "community": 52,
-      "norm_label": "vitest"
     },
     {
       "label": "postcss.config.mjs",
@@ -1386,7 +1368,7 @@
       "source_file": "app/product/layout.tsx",
       "source_location": "L1",
       "id": "app_product_layout_tsx",
-      "community": 54,
+      "community": 0,
       "norm_label": "layout.tsx"
     },
     {
@@ -1395,7 +1377,7 @@
       "source_file": "app/product/layout.tsx",
       "source_location": "L7",
       "id": "product_layout_productlayout",
-      "community": 54,
+      "community": 0,
       "norm_label": "productlayout()"
     },
     {
@@ -1404,7 +1386,7 @@
       "source_file": "app/product/layout.tsx",
       "source_location": "L18",
       "id": "product_layout_productmenu",
-      "community": 54,
+      "community": 0,
       "norm_label": "productmenu()"
     },
     {
@@ -1413,7 +1395,7 @@
       "source_file": "app/product/layout.tsx",
       "source_location": "L40",
       "id": "product_layout_menulink",
-      "community": 54,
+      "community": 0,
       "norm_label": "menulink()"
     },
     {
@@ -1449,7 +1431,7 @@
       "source_file": "app/product/Chat/Chat.tsx",
       "source_location": "L11",
       "id": "chat_chat_chat",
-      "community": 0,
+      "community": 18,
       "norm_label": "chat()"
     },
     {
@@ -1476,7 +1458,7 @@
       "source_file": "app/product/Chat/Message.tsx",
       "source_location": "L1",
       "id": "app_product_chat_message_tsx",
-      "community": 18,
+      "community": 0,
       "norm_label": "message.tsx"
     },
     {
@@ -1485,7 +1467,7 @@
       "source_file": "app/product/Chat/Message.tsx",
       "source_location": "L4",
       "id": "chat_message_message",
-      "community": 18,
+      "community": 0,
       "norm_label": "message()"
     },
     {
@@ -1539,7 +1521,7 @@
       "source_file": "app/product/dashboard/layout.tsx",
       "source_location": "L1",
       "id": "app_product_dashboard_layout_tsx",
-      "community": 18,
+      "community": 0,
       "norm_label": "layout.tsx"
     },
     {
@@ -1548,7 +1530,7 @@
       "source_file": "app/product/dashboard/layout.tsx",
       "source_location": "L9",
       "id": "dashboard_layout_dashboardlayout",
-      "community": 18,
+      "community": 0,
       "norm_label": "dashboardlayout()"
     },
     {
@@ -1570,51 +1552,6 @@
       "norm_label": "dashboardhome()"
     },
     {
-      "label": "invoices.test.ts",
-      "file_type": "code",
-      "source_file": "app/product/dashboard/invoices/invoices.test.ts",
-      "source_location": "L1",
-      "id": "app_product_dashboard_invoices_invoices_test_ts",
-      "community": 53,
-      "norm_label": "invoices.test.ts"
-    },
-    {
-      "label": "validData",
-      "file_type": "code",
-      "source_file": "app/product/dashboard/invoices/invoices.test.ts",
-      "source_location": "L7",
-      "id": "invoices_invoices_test_validdata",
-      "community": 53,
-      "norm_label": "validdata"
-    },
-    {
-      "label": "parsed",
-      "file_type": "code",
-      "source_file": "app/product/dashboard/invoices/invoices.test.ts",
-      "source_location": "L15",
-      "id": "invoices_invoices_test_parsed",
-      "community": 53,
-      "norm_label": "parsed"
-    },
-    {
-      "label": "invalidData",
-      "file_type": "code",
-      "source_file": "app/product/dashboard/invoices/invoices.test.ts",
-      "source_location": "L27",
-      "id": "invoices_invoices_test_invaliddata",
-      "community": 53,
-      "norm_label": "invaliddata"
-    },
-    {
-      "label": "error",
-      "file_type": "code",
-      "source_file": "app/product/dashboard/invoices/invoices.test.ts",
-      "source_location": "L38",
-      "id": "invoices_invoices_test_error",
-      "community": 53,
-      "norm_label": "error"
-    },
-    {
       "label": "page.tsx",
       "file_type": "code",
       "source_file": "app/product/dashboard/invoices/page.tsx",
@@ -1624,40 +1561,22 @@
       "norm_label": "page.tsx"
     },
     {
-      "label": "InvoicesPage()",
-      "file_type": "code",
-      "source_file": "app/product/dashboard/invoices/page.tsx",
-      "source_location": "L36",
-      "id": "invoices_page_invoicespage",
-      "community": 18,
-      "norm_label": "invoicespage()"
-    },
-    {
-      "label": "schema.ts",
-      "file_type": "code",
-      "source_file": "app/product/dashboard/invoices/schema.ts",
-      "source_location": "L1",
-      "id": "app_product_dashboard_invoices_schema_ts",
-      "community": 53,
-      "norm_label": "schema.ts"
-    },
-    {
       "label": "invoiceSchema",
       "file_type": "code",
-      "source_file": "app/product/dashboard/invoices/schema.ts",
-      "source_location": "L3",
-      "id": "invoices_schema_invoiceschema",
-      "community": 53,
+      "source_file": "app/product/dashboard/invoices/page.tsx",
+      "source_location": "L35",
+      "id": "invoices_page_invoiceschema",
+      "community": 18,
       "norm_label": "invoiceschema"
     },
     {
-      "label": "InvoiceInput",
+      "label": "InvoicesPage()",
       "file_type": "code",
-      "source_file": "app/product/dashboard/invoices/schema.ts",
-      "source_location": "L11",
-      "id": "invoices_schema_invoiceinput",
-      "community": 53,
-      "norm_label": "invoiceinput"
+      "source_file": "app/product/dashboard/invoices/page.tsx",
+      "source_location": "L43",
+      "id": "invoices_page_invoicespage",
+      "community": 18,
+      "norm_label": "invoicespage()"
     },
     {
       "label": "page.tsx",
@@ -1809,7 +1728,7 @@
       "source_file": "components/ConvexClientProvider.tsx",
       "source_location": "L1",
       "id": "components_convexclientprovider_tsx",
-      "community": 54,
+      "community": 0,
       "norm_label": "convexclientprovider.tsx"
     },
     {
@@ -1818,7 +1737,7 @@
       "source_file": "components/ConvexClientProvider.tsx",
       "source_location": "L8",
       "id": "components_convexclientprovider_convex",
-      "community": 54,
+      "community": 0,
       "norm_label": "convex"
     },
     {
@@ -1827,7 +1746,7 @@
       "source_file": "components/ConvexClientProvider.tsx",
       "source_location": "L10",
       "id": "components_convexclientprovider_convexclientprovider",
-      "community": 54,
+      "community": 0,
       "norm_label": "convexclientprovider()"
     },
     {
@@ -1836,7 +1755,7 @@
       "source_file": "components/DashboardNav.tsx",
       "source_location": "L1",
       "id": "components_dashboardnav_tsx",
-      "community": 18,
+      "community": 0,
       "norm_label": "dashboardnav.tsx"
     },
     {
@@ -1845,7 +1764,7 @@
       "source_file": "components/DashboardNav.tsx",
       "source_location": "L21",
       "id": "components_dashboardnav_navitems",
-      "community": 18,
+      "community": 0,
       "norm_label": "navitems"
     },
     {
@@ -1854,7 +1773,7 @@
       "source_file": "components/DashboardNav.tsx",
       "source_location": "L30",
       "id": "components_dashboardnav_dashboardnav",
-      "community": 18,
+      "community": 0,
       "norm_label": "dashboardnav()"
     },
     {
@@ -2322,7 +2241,7 @@
       "source_file": "components/ui/toggle-group.tsx",
       "source_location": "L1",
       "id": "components_ui_toggle_group_tsx",
-      "community": 18,
+      "community": 0,
       "norm_label": "toggle-group.tsx"
     },
     {
@@ -2331,7 +2250,7 @@
       "source_file": "components/ui/toggle-group.tsx",
       "source_location": "L10",
       "id": "ui_toggle_group_togglegroupcontext",
-      "community": 18,
+      "community": 0,
       "norm_label": "togglegroupcontext"
     },
     {
@@ -2340,7 +2259,7 @@
       "source_file": "components/ui/toggle-group.tsx",
       "source_location": "L17",
       "id": "ui_toggle_group_togglegroup",
-      "community": 18,
+      "community": 0,
       "norm_label": "togglegroup"
     },
     {
@@ -2358,7 +2277,7 @@
       "source_file": "components/ui/toggle.tsx",
       "source_location": "L1",
       "id": "components_ui_toggle_tsx",
-      "community": 18,
+      "community": 0,
       "norm_label": "toggle.tsx"
     },
     {
@@ -2367,7 +2286,7 @@
       "source_file": "components/ui/toggle.tsx",
       "source_location": "L9",
       "id": "ui_toggle_togglevariants",
-      "community": 18,
+      "community": 0,
       "norm_label": "togglevariants"
     },
     {
@@ -2376,7 +2295,7 @@
       "source_file": "components/ui/toggle.tsx",
       "source_location": "L31",
       "id": "ui_toggle_toggle",
-      "community": 18,
+      "community": 0,
       "norm_label": "toggle"
     },
     {
@@ -3006,7 +2925,7 @@
       "source_file": "lib/utils.ts",
       "source_location": "L1",
       "id": "lib_utils_ts",
-      "community": 18,
+      "community": 0,
       "norm_label": "utils.ts"
     },
     {
@@ -3015,7 +2934,7 @@
       "source_file": "lib/utils.ts",
       "source_location": "L4",
       "id": "lib_utils_cn",
-      "community": 18,
+      "community": 0,
       "norm_label": "cn()"
     },
     {
@@ -7060,15 +6979,6 @@
       "norm_label": "source nodes"
     },
     {
-      "label": "invoiceSchema",
-      "file_type": "code",
-      "source_file": "app/product/dashboard/invoices/page.tsx",
-      "source_location": "L35",
-      "community": 18,
-      "norm_label": "invoiceschema",
-      "id": "invoices_page_invoiceschema"
-    },
-    {
       "label": "Resource()",
       "file_type": "code",
       "source_file": "app/(splash)/GetStarted/GetStarted.tsx",
@@ -7607,16 +7517,6 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "package.json",
-      "source_location": "L10",
-      "weight": 1.0,
-      "source": "dashboard_package_scripts",
-      "target": "dashboard_package_scripts_test",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "package.json",
       "source_location": "L12",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -7859,9 +7759,9 @@
       "source_file": "package.json",
       "source_location": "L36",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "dashboard_package_dependencies",
-      "target": "dashboard_package_dependencies_zod"
+      "target": "dashboard_package_dependencies_zod",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -7963,16 +7863,6 @@
       "confidence_score": 1.0,
       "source": "dashboard_package_devdependencies",
       "target": "dashboard_package_devdependencies_typescript"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "package.json",
-      "source_location": "L49",
-      "weight": 1.0,
-      "source": "dashboard_package_devdependencies",
-      "target": "dashboard_package_devdependencies_vitest",
-      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -9833,68 +9723,6 @@
       "relation": "imports_from",
       "context": "import",
       "confidence": "EXTRACTED",
-      "source_file": "app/product/dashboard/invoices/invoices.test.ts",
-      "source_location": "L2",
-      "weight": 1.0,
-      "source": "app_product_dashboard_invoices_invoices_test_ts",
-      "target": "app_product_dashboard_invoices_schema_ts",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "app/product/dashboard/invoices/invoices.test.ts",
-      "source_location": "L2",
-      "weight": 1.0,
-      "source": "app_product_dashboard_invoices_invoices_test_ts",
-      "target": "invoices_schema_invoiceschema",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "app/product/dashboard/invoices/invoices.test.ts",
-      "source_location": "L7",
-      "weight": 1.0,
-      "source": "app_product_dashboard_invoices_invoices_test_ts",
-      "target": "invoices_invoices_test_validdata",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "app/product/dashboard/invoices/invoices.test.ts",
-      "source_location": "L86",
-      "weight": 1.0,
-      "source": "app_product_dashboard_invoices_invoices_test_ts",
-      "target": "invoices_invoices_test_parsed",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "app/product/dashboard/invoices/invoices.test.ts",
-      "source_location": "L78",
-      "weight": 1.0,
-      "source": "app_product_dashboard_invoices_invoices_test_ts",
-      "target": "invoices_invoices_test_invaliddata",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "app/product/dashboard/invoices/invoices.test.ts",
-      "source_location": "L72",
-      "weight": 1.0,
-      "source": "app_product_dashboard_invoices_invoices_test_ts",
-      "target": "invoices_invoices_test_error",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
       "source_file": "app/product/dashboard/invoices/page.tsx",
       "source_location": "L6",
       "weight": 1.0,
@@ -10222,25 +10050,13 @@
       "target": "ui_select_selecttrigger"
     },
     {
-      "relation": "imports_from",
-      "context": "import",
+      "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "app/product/dashboard/invoices/page.tsx",
-      "source_location": "L34",
+      "source_location": "L35",
       "weight": 1.0,
       "source": "app_product_dashboard_invoices_page_tsx",
-      "target": "app_product_dashboard_invoices_schema_ts",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "app/product/dashboard/invoices/page.tsx",
-      "source_location": "L34",
-      "weight": 1.0,
-      "source": "app_product_dashboard_invoices_page_tsx",
-      "target": "invoices_schema_invoiceschema",
+      "target": "invoices_page_invoiceschema",
       "confidence_score": 1.0
     },
     {
@@ -10252,36 +10068,6 @@
       "confidence_score": 1.0,
       "source": "app_product_dashboard_invoices_page_tsx",
       "target": "invoices_page_invoicespage"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "app/product/dashboard/invoices/page.tsx",
-      "source_location": "L35",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "app_product_dashboard_invoices_page_tsx",
-      "target": "invoices_page_invoiceschema"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "app/product/dashboard/invoices/schema.ts",
-      "source_location": "L3",
-      "weight": 1.0,
-      "source": "app_product_dashboard_invoices_schema_ts",
-      "target": "invoices_schema_invoiceschema",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "app/product/dashboard/invoices/schema.ts",
-      "source_location": "L11",
-      "weight": 1.0,
-      "source": "app_product_dashboard_invoices_schema_ts",
-      "target": "invoices_schema_invoiceinput",
-      "confidence_score": 1.0
     },
     {
       "relation": "imports_from",

@@ -20,8 +20,8 @@
     "semantic_hash": "9b77af189a21a7a64e4bd7a426f64176"
   },
   "C:\\Users\\eyadh\\Desktop\\ReactAiAgent\\dashboard\\package.json": {
-    "mtime": 1779390977.3035996,
-    "ast_hash": "f8f28c5f7af0520a3b13172ba4ee159b",
+    "mtime": 1779340301.234012,
+    "ast_hash": "93ad81a34e397a29cd914bb850e3c659",
     "semantic_hash": ""
   },
   "C:\\Users\\eyadh\\Desktop\\ReactAiAgent\\dashboard\\postcss.config.mjs": {
@@ -605,8 +605,8 @@
     "semantic_hash": ""
   },
   "C:\\Users\\eyadh\\Desktop\\ReactAiAgent\\dashboard\\app\\product\\dashboard\\invoices\\page.tsx": {
-    "mtime": 1779390993.0680122,
-    "ast_hash": "25e07a481e8edde20ab3489c5ff10256",
+    "mtime": 1779390103.3798265,
+    "ast_hash": "ee7e5b8d6768adba3c13c2c028d24028",
     "semantic_hash": ""
   },
   "C:\\Users\\eyadh\\Desktop\\ReactAiAgent\\dashboard\\app\\product\\dashboard\\receipts\\page.tsx": {
@@ -682,21 +682,6 @@
   "C:\\Users\\eyadh\\Desktop\\ReactAiAgent\\dashboard\\convex\\transactions.ts": {
     "mtime": 1779390124.758931,
     "ast_hash": "416bb24345e8e9549442e55f014cefd9",
-    "semantic_hash": ""
-  },
-  "C:\\Users\\eyadh\\Desktop\\ReactAiAgent\\dashboard\\app\\product\\dashboard\\invoices\\invoices.test.ts": {
-    "mtime": 1779391000.415176,
-    "ast_hash": "422ab94fe24e38d4ec8ee9902ffb0552",
-    "semantic_hash": ""
-  },
-  "C:\\Users\\eyadh\\Desktop\\ReactAiAgent\\dashboard\\app\\product\\dashboard\\invoices\\schema.ts": {
-    "mtime": 1779390983.595148,
-    "ast_hash": "34261d6e5e13591dd4ed715b8311fbf9",
-    "semantic_hash": ""
-  },
-  "C:\\Users\\eyadh\\Desktop\\ReactAiAgent\\dashboard\\.github\\workflows\\ci.yml": {
-    "mtime": 1779390934.9163208,
-    "ast_hash": "b460673e680e4b97749ec7139f669bb5",
     "semantic_hash": ""
   }
 }

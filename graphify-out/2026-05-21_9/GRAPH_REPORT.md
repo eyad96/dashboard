@@ -1,11 +1,11 @@
 # Graph Report - dashboard  (2026-05-21)
 
 ## Corpus Check
-- 117 files · ~57,925 words
+- 115 files · ~57,518 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 804 nodes · 982 edges · 55 communities (47 shown, 8 thin omitted)
+- 794 nodes · 970 edges · 52 communities (45 shown, 7 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS · INFERRED: 4 edges (avg confidence: 0.83)
 - Token cost: 0 input · 0 output
 
@@ -59,9 +59,6 @@
 - [[_COMMUNITY_Community 43|Community 43]]
 - [[_COMMUNITY_Community 45|Community 45]]
 - [[_COMMUNITY_Community 49|Community 49]]
-- [[_COMMUNITY_Community 52|Community 52]]
-- [[_COMMUNITY_Community 53|Community 53]]
-- [[_COMMUNITY_Community 54|Community 54]]
 
 ## God Nodes (most connected - your core abstractions)
 1. `cn()` - 22 edges
@@ -80,18 +77,18 @@
   lib/utils.ts → package.json
 - `MenuLink()` --calls--> `cn()`  [EXTRACTED]
   app/product/layout.tsx → lib/utils.ts
+- `DialogHeader()` --calls--> `cn()`  [EXTRACTED]
+  components/ui/dialog.tsx → lib/utils.ts
+- `DialogFooter()` --calls--> `cn()`  [EXTRACTED]
+  components/ui/dialog.tsx → lib/utils.ts
 - `DropdownMenuShortcut()` --calls--> `cn()`  [EXTRACTED]
   components/ui/dropdown-menu.tsx → lib/utils.ts
-- `Convex Guidelines` --conceptually_related_to--> `Convex Authentication Setup`  [INFERRED]
-  convex/_generated/ai/guidelines.md → .claude/skills/convex-setup-auth/SKILL.md
-- `Convex Skill` --calls--> `Convex Authentication Setup`  [EXTRACTED]
-  .agents/skills/convex/SKILL.md → .claude/skills/convex-setup-auth/SKILL.md
 
-## Communities (55 total, 8 thin omitted)
+## Communities (52 total, 7 thin omitted)
 
 ### Community 0 - "Chat & Theme UI"
-Cohesion: 0.12
-Nodes (17): Chat(), ChatIntro(), names, randomName(), ThemeToggle(), UserMenu(), ProductPage(), DropdownMenuCheckboxItem (+9 more)
+Cohesion: 0.08
+Nodes (26): ChatIntro(), Message(), names, randomName(), convex, DashboardNav(), navItems, ThemeToggle() (+18 more)
 
 ### Community 1 - "Convex Quickstart & Setup"
 Cohesion: 0.05
@@ -106,8 +103,8 @@ Cohesion: 0.07
 Nodes (29): code:typescript (import { mutation } from "./_generated/server";), code:typescript (import { defineSchema, defineTable } from "convex/server";), Validators, code:ts (import { defineSchema, defineTable } from "convex/server";), code:ts (import { query, mutation } from "./_generated/server";), code:tsx (import { useQuery, useMutation } from "convex/react";), Writing Your First Function, Adding a Required Field (+21 more)
 
 ### Community 4 - "Convex Backend API Router"
-Cohesion: 0.08
-Nodes (26): dependencies, class-variance-authority, @clerk/nextjs, clsx, convex, lucide-react, next, next-themes (+18 more)
+Cohesion: 0.04
+Nodes (44): dependencies, class-variance-authority, @clerk/nextjs, clsx, convex, lucide-react, next, next-themes (+36 more)
 
 ### Community 5 - "Convex Query Optimization"
 Cohesion: 0.06
@@ -162,8 +159,8 @@ Cohesion: 0.09
 Nodes (37): computedHash, computedHash, skillPath, source, sourceType, computedHash, skillPath, source (+29 more)
 
 ### Community 18 - "Convex tsconfig Settings"
-Cohesion: 0.06
-Nodes (46): Message(), MessageList(), CashFlowChart(), CashFlowChartProps, Code(), DashboardNav(), navItems, InvoiceStatusChart() (+38 more)
+Cohesion: 0.07
+Nodes (39): Chat(), MessageList(), CashFlowChart(), CashFlowChartProps, Code(), InvoiceStatusChart(), InvoiceStatusChartProps, components (+31 more)
 
 ### Community 19 - "User Identity & Authentication"
 Cohesion: 0.15
@@ -237,30 +234,22 @@ Nodes (3): Convex Backend, Convex AI Guidelines, Convex + Next.js App
 Cohesion: 0.50
 Nodes (3): AI Agent Rules, Project Status, قوانين المطور المساعد (AI Agent Rules)
 
-### Community 52 - "Community 52"
-Cohesion: 0.10
-Nodes (20): devDependencies, eslint, eslint-config-next, postcss, prettier, tailwindcss, @types/node, @types/react (+12 more)
-
-### Community 53 - "Community 53"
-Cohesion: 0.29
-Nodes (6): error, invalidData, parsed, validData, InvoiceInput, invoiceSchema
-
 ## Knowledge Gaps
-- **469 isolated node(s):** `extends`, `$schema`, `style`, `rsc`, `tsx` (+464 more)
+- **462 isolated node(s):** `extends`, `$schema`, `style`, `rsc`, `tsx` (+457 more)
   These have ≤1 connection - possible missing edges or undocumented components.
-- **8 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **7 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `cn()` connect `Convex tsconfig Settings` to `Chat & Theme UI`, `Convex Backend API Router`, `Community 54`?**
-  _High betweenness centrality (0.029) - this node is a cross-community bridge._
 - **Why does `Convex Quickstart` connect `Convex Query Optimization` to `Package Dependencies`?**
+  _High betweenness centrality (0.028) - this node is a cross-community bridge._
+- **Why does `cn()` connect `Chat & Theme UI` to `Convex tsconfig Settings`, `Convex Backend API Router`?**
   _High betweenness centrality (0.027) - this node is a cross-community bridge._
 - **What connects `extends`, `$schema`, `style` to the rest of the system?**
-  _469 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _462 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Chat & Theme UI` be split into smaller, more focused modules?**
-  _Cohesion score 0.1225296442687747 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.07610993657505286 - nodes in this community are weakly interconnected._
 - **Should `Convex Quickstart & Setup` be split into smaller, more focused modules?**
   _Cohesion score 0.04878048780487805 - nodes in this community are weakly interconnected._
 - **Should `Convex Performance Best Practices` be split into smaller, more focused modules?**

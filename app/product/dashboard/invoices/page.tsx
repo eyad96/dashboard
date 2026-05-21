@@ -30,6 +30,8 @@ import {
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { z } from "zod";
+import { invoiceSchema } from "./schema";
 
 export default function InvoicesPage() {
   const { organization, membership } = useOrganization();
@@ -42,6 +44,7 @@ export default function InvoicesPage() {
   const [amount, setAmount] = React.useState("");
   const [dueDateDays, setDueDateDays] = React.useState("30");
   const [status, setStatus] = React.useState<"draft" | "sent" | "paid">("sent");
+  const [errors, setErrors] = React.useState<Record<string, string>>({});
 
   // Convex hooks
   const invoices = useQuery(
@@ -63,27 +66,44 @@ export default function InvoicesPage() {
     e.preventDefault();
     if (isViewer) return;
 
-    const numAmount = parseFloat(amount);
-    if (isNaN(numAmount) || numAmount <= 0) return;
+    const result = invoiceSchema.safeParse({
+      customerName,
+      customerEmail,
+      amount,
+      dueDateDays,
+      status,
+    });
 
+    if (!result.success) {
+      const fieldErrors: Record<string, string> = {};
+      result.error.issues.forEach((issue) => {
+        const path = issue.path[0] as string;
+        fieldErrors[path] = issue.message;
+      });
+      setErrors(fieldErrors);
+      return;
+    }
+
+    const data = result.data;
     const invoiceNumber = `INV-${Date.now().toString().slice(-6)}`;
-    const dueTime = Date.now() + parseInt(dueDateDays) * 24 * 60 * 60 * 1000;
+    const dueTime = Date.now() + data.dueDateDays * 24 * 60 * 60 * 1000;
 
     try {
       await createInvoice({
         orgId: organization.id,
         invoiceNumber,
-        customerName,
-        customerEmail,
-        amount: numAmount,
+        customerName: data.customerName,
+        customerEmail: data.customerEmail,
+        amount: data.amount,
         dueDate: dueTime,
-        status,
+        status: data.status,
       });
 
       // Reset form
       setCustomerName("");
       setCustomerEmail("");
       setAmount("");
+      setErrors({});
       setIsDialogOpen(false);
     } catch (err) {
       console.error("Failed to create invoice:", err);
@@ -125,7 +145,12 @@ export default function InvoicesPage() {
         </div>
 
         {/* Invoice Creation Trigger */}
-        <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
+        <Dialog open={isDialogOpen} onOpenChange={(open) => {
+          setIsDialogOpen(open);
+          if (!open) {
+            setErrors({});
+          }
+        }}>
           <DialogTrigger asChild>
             <Button
               disabled={isViewer}
@@ -155,6 +180,11 @@ export default function InvoicesPage() {
                     onChange={(e) => setCustomerName(e.target.value)}
                     required
                   />
+                  {errors.customerName && (
+                    <span className="text-[10px] text-rose-500 font-semibold mt-0.5 animate-in fade-in duration-200">
+                      {errors.customerName}
+                    </span>
+                  )}
                 </div>
 
                 <div className="flex flex-col gap-1.5">
@@ -167,6 +197,11 @@ export default function InvoicesPage() {
                     onChange={(e) => setCustomerEmail(e.target.value)}
                     required
                   />
+                  {errors.customerEmail && (
+                    <span className="text-[10px] text-rose-500 font-semibold mt-0.5 animate-in fade-in duration-200">
+                      {errors.customerEmail}
+                    </span>
+                  )}
                 </div>
 
                 {/* Amount and Terms */}
@@ -182,6 +217,11 @@ export default function InvoicesPage() {
                       onChange={(e) => setAmount(e.target.value)}
                       required
                     />
+                    {errors.amount && (
+                      <span className="text-[10px] text-rose-500 font-semibold mt-0.5 animate-in fade-in duration-200">
+                        {errors.amount}
+                      </span>
+                    )}
                   </div>
                   <div className="flex flex-col gap-1.5">
                     <Label htmlFor="terms">Payment Terms</Label>
