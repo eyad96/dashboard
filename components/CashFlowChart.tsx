@@ -3,6 +3,9 @@
 import React, { useEffect, useState } from "react";
 import { ResponsiveContainer, AreaChart, Area, XAxis, YAxis, Tooltip, CartesianGrid } from "recharts";
 
+import { useContext } from "react";
+import { DeveloperModeContext } from "@/components/DeveloperModeContext";
+
 interface CashFlowChartProps {
   data: Array<{
     month: string;
@@ -13,9 +16,12 @@ interface CashFlowChartProps {
 
 export function CashFlowChart({ data }: CashFlowChartProps) {
   const [mounted, setMounted] = useState(false);
+  const devContext = useContext(DeveloperModeContext);
+  const chartType = devContext?.styleOptions.chartStyle || "monotone";
 
   useEffect(() => {
-    setMounted(true);
+    const timer = setTimeout(() => setMounted(true), 0);
+    return () => clearTimeout(timer);
   }, []);
 
   if (!mounted) {
@@ -66,7 +72,7 @@ export function CashFlowChart({ data }: CashFlowChartProps) {
             itemStyle={{ fontSize: "12px", color: "hsl(var(--foreground))" }}
           />
           <Area 
-            type="monotone" 
+            type={chartType} 
             dataKey="income" 
             name="Income ($)" 
             stroke="#10b981" 
@@ -75,7 +81,7 @@ export function CashFlowChart({ data }: CashFlowChartProps) {
             fill="url(#colorIncome)" 
           />
           <Area 
-            type="monotone" 
+            type={chartType} 
             dataKey="expense" 
             name="Expense ($)" 
             stroke="#f43f5e" 

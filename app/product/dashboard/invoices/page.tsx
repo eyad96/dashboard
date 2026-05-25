@@ -10,13 +10,13 @@ import {
   Lock,
   Check,
   CalendarDays,
-  FileText,
   BadgeAlert,
   HelpCircle,
-  FolderSync
+  FolderSync,
+  Download
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card } from "@/components/ui/card";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import {
   Dialog,
@@ -30,13 +30,18 @@ import {
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { z } from "zod";
 import { invoiceSchema } from "./schema";
+import { Id } from "@/convex/_generated/dataModel";
 
 export default function InvoicesPage() {
   const { organization, membership } = useOrganization();
   const { isAuthenticated } = useConvexAuth();
   const [isDialogOpen, setIsDialogOpen] = React.useState(false);
+  const [now, setNow] = React.useState<number>(0);
+  React.useEffect(() => {
+    const timer = setTimeout(() => setNow(Date.now()), 0);
+    return () => clearTimeout(timer);
+  }, []);
 
   // Form states
   const [customerName, setCustomerName] = React.useState("");
@@ -110,7 +115,7 @@ export default function InvoicesPage() {
     }
   };
 
-  const handleTogglePaid = async (id: any, currentStatus: string) => {
+  const handleTogglePaid = async (id: Id<"invoices">, currentStatus: string) => {
     if (isViewer) return;
     const nextStatus = currentStatus === "paid" ? "sent" : "paid";
     try {
@@ -122,6 +127,37 @@ export default function InvoicesPage() {
     } catch (err) {
       console.error("Toggle paid status failed:", err);
     }
+  };
+
+  const handleExportCSV = () => {
+    if (!invoices || invoices.length === 0) return;
+    
+    // CSV Header
+    const headers = ["Invoice Number", "Client Company", "Billing Email", "Due Date", "Status", "Amount"];
+    
+    // CSV Rows
+    const rows = invoices.map((inv) => [
+      inv.invoiceNumber,
+      `"${inv.customerName.replace(/"/g, '""')}"`,
+      `"${inv.customerEmail.replace(/"/g, '""')}"`,
+      new Date(inv.dueDate).toLocaleDateString(),
+      inv.status,
+      inv.amount
+    ]);
+    
+    const csvContent = [
+      headers.join(","),
+      ...rows.map((row) => row.join(","))
+    ].join("\n");
+    
+    const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+    link.setAttribute("href", url);
+    link.setAttribute("download", `billing_invoices_${organization.name.toLowerCase().replace(/\s+/g, "_")}.csv`);
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
   };
 
   return (
@@ -154,7 +190,7 @@ export default function InvoicesPage() {
           <DialogTrigger asChild>
             <Button
               disabled={isViewer}
-              className="bg-emerald-600 hover:bg-emerald-500 text-white font-semibold rounded-xl flex items-center justify-center gap-1.5 shadow-md shadow-emerald-500/10"
+              className="bg-primary hover:brightness-110 text-primary-foreground font-semibold rounded-xl flex items-center justify-center gap-1.5 shadow-md shadow-primary/10"
             >
               <Plus className="h-4.5 w-4.5" />
               New Invoice
@@ -242,7 +278,7 @@ export default function InvoicesPage() {
                 {/* Invoice Status */}
                 <div className="flex flex-col gap-1.5">
                   <Label htmlFor="status">Initial Status</Label>
-                  <Select value={status} onValueChange={(val: any) => setStatus(val)}>
+                  <Select value={status} onValueChange={(val: "draft" | "sent" | "paid") => setStatus(val)}>
                     <SelectTrigger id="status">
                       <SelectValue placeholder="Select Status" />
                     </SelectTrigger>
@@ -258,7 +294,7 @@ export default function InvoicesPage() {
               <DialogFooter>
                 <Button
                   type="submit"
-                  className="bg-emerald-600 hover:bg-emerald-500 text-white font-semibold rounded-xl w-full sm:w-auto"
+                  className="bg-primary hover:brightness-110 text-primary-foreground font-semibold rounded-xl w-full sm:w-auto"
                 >
                   Generate Invoice
                 </Button>
@@ -266,6 +302,23 @@ export default function InvoicesPage() {
             </form>
           </DialogContent>
         </Dialog>
+      </div>
+
+      {/* Summary / Actions Toolbar */}
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 p-4 border rounded-2xl bg-background/50 backdrop-blur-sm">
+        <div className="text-xs text-muted-foreground font-semibold">
+          Showing {invoices?.length ?? 0} invoice records
+        </div>
+        <Button 
+          variant="outline"
+          size="sm"
+          onClick={handleExportCSV}
+          disabled={!invoices || invoices.length === 0}
+          className="text-[11px] h-8 rounded-lg font-semibold flex items-center gap-1.5 border-neutral-200 dark:border-neutral-800"
+        >
+          <Download className="h-3.5 w-3.5" />
+          Export CSV
+        </Button>
       </div>
 
       {/* Invoice Grid Feed */}
@@ -297,7 +350,7 @@ export default function InvoicesPage() {
             </TableHeader>
             <TableBody>
               {invoices.map((inv) => {
-                const isOverdue = inv.status !== "paid" && inv.dueDate < Date.now();
+                const isOverdue = inv.status !== "paid" && inv.dueDate < now;
                 return (
                   <TableRow key={inv._id} className="hover:bg-muted/20">
                     <TableCell className="font-bold text-foreground">{inv.invoiceNumber}</TableCell>
@@ -337,7 +390,7 @@ export default function InvoicesPage() {
                           onClick={() => handleTogglePaid(inv._id, inv.status)}
                           className={`text-[10px] font-bold rounded-lg px-2 py-1 h-6 transition-all ${inv.status === "paid"
                             ? "border-amber-200 text-amber-600 hover:bg-amber-500/5 dark:border-amber-900/50"
-                            : "border-emerald-200 text-emerald-600 bg-emerald-500/5 hover:bg-emerald-500/10 dark:border-emerald-900/50"
+                            : "border-primary/20 text-primary bg-primary/5 hover:bg-primary/10 dark:border-primary/30"
                             }`}
                         >
                           <FolderSync className="h-3 w-3 shrink-0 mr-1" />

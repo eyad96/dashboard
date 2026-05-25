@@ -36,8 +36,8 @@ export function DashboardNav() {
       {/* Mobile Header Bar */}
       <header className="flex h-14 items-center justify-between border-b bg-background/80 backdrop-blur-md px-4 md:hidden sticky top-0 z-40 w-full">
         <div className="flex items-center gap-2">
-          <TrendingUp className="h-6 w-6 text-emerald-500 font-bold" />
-          <span className="font-bold text-lg tracking-tight bg-gradient-to-r from-emerald-500 to-teal-400 bg-clip-text text-transparent">Antigravity Books</span>
+          <TrendingUp className="h-6 w-6 text-primary font-bold" />
+          <span className="font-bold text-lg tracking-tight bg-gradient-to-r from-primary to-indigo-500 bg-clip-text text-transparent">ECompany Books</span>
         </div>
         <Button variant="ghost" size="icon" onClick={() => setIsOpen(!isOpen)}>
           {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
@@ -61,11 +61,11 @@ export function DashboardNav() {
         <div className="flex flex-col gap-6">
           {/* QuickBooks-like Brand Header */}
           <div className="flex items-center gap-2.5 px-2 py-1">
-            <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-tr from-emerald-500 to-teal-400 text-white shadow-md shadow-emerald-500/20">
+            <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-tr from-primary to-indigo-500 text-white shadow-md shadow-primary/20">
               <TrendingUp className="h-5 w-5" />
             </div>
             <div>
-              <h1 className="text-base font-bold leading-none tracking-tight">Antigravity Books</h1>
+              <h1 className="text-base font-bold leading-none tracking-tight">ECompany Books</h1>
               <p className="text-[10px] text-muted-foreground mt-0.5">B2B Accounting Hub</p>
             </div>
           </div>
@@ -100,11 +100,11 @@ export function DashboardNav() {
                   className={cn(
                     "flex items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium transition-all duration-200",
                     isActive 
-                      ? "bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 font-semibold shadow-sm shadow-emerald-500/5" 
+                      ? "bg-primary/10 text-primary font-semibold shadow-sm shadow-primary/5" 
                       : "text-muted-foreground hover:bg-accent hover:text-foreground"
                   )}
                 >
-                  <Icon className={cn("h-4.5 w-4.5 transition-transform group-hover:scale-105", isActive ? "text-emerald-500" : "text-muted-foreground")} />
+                  <Icon className={cn("h-4.5 w-4.5 transition-transform group-hover:scale-105", isActive ? "text-primary" : "text-muted-foreground")} />
                   <span>{item.label}</span>
                 </Link>
               );

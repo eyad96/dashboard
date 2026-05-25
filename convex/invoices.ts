@@ -85,3 +85,26 @@ export const updateInvoiceStatus = mutation({
     return true;
   },
 });
+
+/**
+ * Deletes a B2B client invoice.
+ * Write access: restricted to Admin and Accountant roles.
+ */
+export const deleteInvoice = mutation({
+  args: {
+    orgId: v.string(),
+    id: v.id("invoices"),
+  },
+  handler: async (ctx, args) => {
+    await verifyOrgAccess(ctx, args.orgId, ["admin", "accountant"]);
+
+    const invoice = await ctx.db.get(args.id);
+    if (!invoice || invoice.orgId !== args.orgId) {
+      throw new Error("Invoice not found or unauthorized");
+    }
+
+    await ctx.db.delete(args.id);
+    return true;
+  },
+});
+

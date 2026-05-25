@@ -13,6 +13,7 @@ import type * as invoices from "../invoices.js";
 import type * as messages from "../messages.js";
 import type * as orgs from "../orgs.js";
 import type * as receipts from "../receipts.js";
+import type * as seeder from "../seeder.js";
 import type * as transactions from "../transactions.js";
 import type * as users from "../users.js";
 
@@ -28,6 +29,7 @@ declare const fullApi: ApiFromModules<{
   messages: typeof messages;
   orgs: typeof orgs;
   receipts: typeof receipts;
+  seeder: typeof seeder;
   transactions: typeof transactions;
   users: typeof users;
 }>;

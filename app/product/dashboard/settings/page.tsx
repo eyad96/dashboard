@@ -5,7 +5,6 @@ import { useOrganization, OrganizationProfile } from "@clerk/nextjs";
 import { useQuery, useMutation, useConvexAuth } from "convex/react";
 import { api } from "@/convex/_generated/api";
 import { 
-  Settings2, 
   Users, 
   CreditCard, 
   Crown, 
@@ -13,10 +12,9 @@ import {
   AlertTriangle,
   Lock,
   ArrowRight,
-  Sparkles,
   ShieldCheck
 } from "lucide-react";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 
 const PLANS = [
@@ -59,8 +57,8 @@ const PLANS = [
       "Clerk Custom RBAC controls",
       "Secure cloud storage vaults"
     ],
-    bg: "from-emerald-500/5 to-teal-500/5",
-    border: "border-emerald-500/20 dark:border-emerald-500/30"
+    bg: "from-primary/5 to-indigo-500/5",
+    border: "border-primary/20 dark:border-primary/30"
   }
 ];
 
@@ -83,7 +81,6 @@ export default function SettingsPage() {
   // Retrieve user roles to enforce access control
   const userRole = membership?.role ?? "";
   const isAdmin = userRole.replace(/^org:/, "") === "admin";
-  const isViewer = userRole.replace(/^org:/, "") === "viewer";
 
   const currentPlan = orgPlan?.plan ?? "free";
   const currentMaxSeats = PLANS.find(p => p.id === currentPlan)?.maxSeats ?? 1;
@@ -198,7 +195,7 @@ export default function SettingsPage() {
           {/* Pricing cards */}
           <div className="space-y-4">
             <h3 className="font-bold text-base flex items-center gap-1.5">
-              <Crown className="h-5 w-5 text-emerald-500 fill-emerald-500/10" />
+              <Crown className="h-5 w-5 text-primary fill-primary/10" />
               Available Accounting Plans
             </h3>
             
@@ -211,11 +208,11 @@ export default function SettingsPage() {
                   <Card 
                     key={plan.id} 
                     className={`rounded-2xl border ${plan.border} bg-gradient-to-br ${plan.bg} p-6 flex flex-col justify-between hover:shadow-md transition-shadow relative ${
-                      isSelected ? "ring-2 ring-emerald-500 ring-offset-2 dark:ring-offset-background" : ""
+                      isSelected ? "ring-2 ring-primary ring-offset-2 dark:ring-offset-background" : ""
                     }`}
                   >
                     {isSelected && (
-                      <span className="absolute top-3 right-3 flex items-center gap-1 bg-emerald-500 text-white font-bold text-[9px] uppercase px-2 py-0.5 rounded-full shadow-sm">
+                      <span className="absolute top-3 right-3 flex items-center gap-1 bg-primary text-white font-bold text-[9px] uppercase px-2 py-0.5 rounded-full shadow-sm">
                         <CheckCircle className="h-2.5 w-2.5" />
                         Active
                       </span>
@@ -235,7 +232,7 @@ export default function SettingsPage() {
                         <ul className="space-y-1.5 text-xs text-muted-foreground">
                           {plan.features.map((feat, i) => (
                             <li key={i} className="flex items-center gap-1.5">
-                              <CheckCircle className="h-3.5 w-3.5 text-emerald-500 shrink-0" />
+                              <CheckCircle className="h-3.5 w-3.5 text-primary shrink-0" />
                               <span>{feat}</span>
                             </li>
                           ))}
@@ -249,10 +246,10 @@ export default function SettingsPage() {
                         onClick={() => handlePlanUpdate(plan.id, plan.maxSeats)}
                         className={`w-full font-semibold rounded-xl text-xs flex items-center justify-center gap-1.5 shadow-sm transition-all ${
                           isSelected 
-                            ? "bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 font-bold border cursor-default" 
+                            ? "bg-primary/10 text-primary dark:text-indigo-400 font-bold border cursor-default" 
                             : !isAdmin 
                               ? "bg-neutral-100 text-neutral-400 cursor-not-allowed dark:bg-neutral-800"
-                              : "bg-emerald-600 hover:bg-emerald-500 text-white shadow-emerald-500/10"
+                              : "bg-primary hover:brightness-110 text-white shadow-primary/10"
                         }`}
                       >
                         {isUpgrading ? (
@@ -281,7 +278,7 @@ export default function SettingsPage() {
         </div>
       ) : (
         <div className="p-4 border rounded-3xl bg-background/50 backdrop-blur-sm animate-in fade-in duration-300">
-          <span className="text-[10px] uppercase font-bold text-emerald-600 dark:text-emerald-400 flex items-center gap-1 mb-4 px-2">
+          <span className="text-[10px] uppercase font-bold text-primary dark:text-indigo-400 flex items-center gap-1 mb-4 px-2">
             <ShieldCheck className="h-3.5 w-3.5" />
             Clerk B2B Team Directory
           </span>

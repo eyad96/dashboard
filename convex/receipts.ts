@@ -1,6 +1,6 @@
 import { v } from "convex/values";
 import { action, mutation, query } from "./_generated/server";
-import { api, internal } from "./_generated/api";
+import { api } from "./_generated/api";
 import { verifyOrgAccess } from "./transactions";
 
 /**
@@ -181,3 +181,35 @@ export const scanReceiptAction = action({
     }
   },
 });
+
+/**
+ * Deletes a B2B receipt and cleans up associated file storage.
+ * Write access: restricted to Admin and Accountant roles.
+ */
+export const deleteReceipt = mutation({
+  args: {
+    orgId: v.string(),
+    id: v.id("receipts"),
+  },
+  handler: async (ctx, args) => {
+    await verifyOrgAccess(ctx, args.orgId, ["admin", "accountant"]);
+
+    const receipt = await ctx.db.get(args.id);
+    if (!receipt || receipt.orgId !== args.orgId) {
+      throw new Error("Receipt not found or unauthorized");
+    }
+
+    // Safely delete file from storage if it exists
+    if (receipt.storageId) {
+      try {
+        await ctx.storage.delete(receipt.storageId);
+      } catch (err) {
+        console.error("Failed to delete storage file:", err);
+      }
+    }
+
+    await ctx.db.delete(args.id);
+    return true;
+  },
+});
+

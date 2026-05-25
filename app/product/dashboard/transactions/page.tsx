@@ -4,6 +4,7 @@ import React from "react";
 import { useOrganization } from "@clerk/nextjs";
 import { useQuery, useMutation, useConvexAuth } from "convex/react";
 import { api } from "@/convex/_generated/api";
+import { Id } from "@/convex/_generated/dataModel";
 import { 
   ArrowRightLeft, 
   Plus, 
@@ -13,10 +14,11 @@ import {
   TrendingDown, 
   CheckCircle,
   Clock,
-  Filter
+  Filter,
+  Download
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card } from "@/components/ui/card";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { 
   Dialog, 
@@ -89,7 +91,7 @@ export default function TransactionsPage() {
     }
   };
 
-  const handleDelete = async (id: any) => {
+  const handleDelete = async (id: Id<"transactions">) => {
     if (isViewer) return;
     try {
       await deleteTransaction({
@@ -99,6 +101,37 @@ export default function TransactionsPage() {
     } catch (err) {
       console.error("Delete failed:", err);
     }
+  };
+
+  const handleExportCSV = () => {
+    if (!filteredTransactions || filteredTransactions.length === 0) return;
+    
+    // CSV Header
+    const headers = ["Description", "Category", "Type", "Date", "Status", "Amount"];
+    
+    // CSV Rows
+    const rows = filteredTransactions.map((tx) => [
+      `"${tx.description.replace(/"/g, '""')}"`,
+      `"${tx.category.replace(/"/g, '""')}"`,
+      tx.type,
+      new Date(tx.date).toLocaleDateString(),
+      tx.status,
+      tx.amount
+    ]);
+    
+    const csvContent = [
+      headers.join(","),
+      ...rows.map((row) => row.join(","))
+    ].join("\n");
+    
+    const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+    link.setAttribute("href", url);
+    link.setAttribute("download", `ledger_transactions_${organization.name.toLowerCase().replace(/\s+/g, "_")}.csv`);
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
   };
 
   const filteredTransactions = transactions?.filter((tx) => {
@@ -131,7 +164,7 @@ export default function TransactionsPage() {
           <DialogTrigger asChild>
             <Button 
               disabled={isViewer}
-              className="bg-emerald-600 hover:bg-emerald-500 text-white font-semibold rounded-xl flex items-center justify-center gap-1.5 shadow-md shadow-emerald-500/10"
+              className="bg-primary hover:brightness-110 text-white font-semibold rounded-xl flex items-center justify-center gap-1.5 shadow-md shadow-primary/10"
             >
               <Plus className="h-4.5 w-4.5" />
               New Transaction
@@ -175,7 +208,7 @@ export default function TransactionsPage() {
                   </div>
                   <div className="flex flex-col gap-1.5">
                     <Label htmlFor="type">Ledger Direction</Label>
-                    <Select value={type} onValueChange={(val: any) => setType(val)}>
+                    <Select value={type} onValueChange={(val: "income" | "expense") => setType(val)}>
                       <SelectTrigger id="type">
                         <SelectValue placeholder="Select type" />
                       </SelectTrigger>
@@ -207,7 +240,7 @@ export default function TransactionsPage() {
                   </div>
                   <div className="flex flex-col gap-1.5">
                     <Label htmlFor="status">Clearance Status</Label>
-                    <Select value={status} onValueChange={(val: any) => setStatus(val)}>
+                    <Select value={status} onValueChange={(val: "pending" | "completed") => setStatus(val)}>
                       <SelectTrigger id="status">
                         <SelectValue placeholder="Select Status" />
                       </SelectTrigger>
@@ -223,7 +256,7 @@ export default function TransactionsPage() {
               <DialogFooter>
                 <Button 
                   type="submit" 
-                  className="bg-emerald-600 hover:bg-emerald-500 text-white font-semibold rounded-xl w-full sm:w-auto"
+                  className="bg-primary hover:brightness-110 text-white font-semibold rounded-xl w-full sm:w-auto"
                 >
                   Post Transaction
                 </Button>
@@ -249,7 +282,7 @@ export default function TransactionsPage() {
             </button>
             <button 
               onClick={() => setTypeFilter("income")}
-              className={`px-3 py-1.5 border-l font-medium transition-colors ${typeFilter === "income" ? "bg-emerald-500/10 text-emerald-600" : "text-muted-foreground hover:bg-muted/50"}`}
+              className={`px-3 py-1.5 border-l font-medium transition-colors ${typeFilter === "income" ? "bg-primary/10 text-primary" : "text-muted-foreground hover:bg-muted/50"}`}
             >
               Income Only
             </button>
@@ -262,9 +295,21 @@ export default function TransactionsPage() {
           </div>
         </div>
 
-        {/* Counter */}
-        <div className="text-xs text-muted-foreground font-semibold">
-          Showing {filteredTransactions?.length ?? 0} transaction records
+        {/* Counter & Export */}
+        <div className="flex items-center gap-4 text-xs font-semibold">
+          <span className="text-muted-foreground">
+            Showing {filteredTransactions?.length ?? 0} transaction records
+          </span>
+          <Button 
+            variant="outline"
+            size="sm"
+            onClick={handleExportCSV}
+            disabled={!filteredTransactions || filteredTransactions.length === 0}
+            className="text-[11px] h-8 rounded-lg font-semibold flex items-center gap-1.5 border-neutral-200 dark:border-neutral-800"
+          >
+            <Download className="h-3.5 w-3.5" />
+            Export CSV
+          </Button>
         </div>
       </div>
 

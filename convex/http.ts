@@ -10,7 +10,7 @@ const http = httpRouter();
  * events to keep the Convex `users` table in sync.
  *
  * In Clerk Dashboard → Webhooks, set the endpoint URL to:
- *   https://kindhearted-panda-167.eu-west-1.convex.site/clerk-webhook
+ *   https://animated-deer-35.eu-west-1.convex.site/clerk-webhook
  *
  * Subscribe to at minimum: user.created, user.updated, user.deleted
  * Then copy the "Signing Secret" and set it as CLERK_WEBHOOK_SECRET in

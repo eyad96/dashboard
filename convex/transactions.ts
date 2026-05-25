@@ -1,12 +1,12 @@
 import { v } from "convex/values";
-import { mutation, query } from "./_generated/server";
+import { mutation, query, QueryCtx, MutationCtx } from "./_generated/server";
 
 /**
  * Validates the caller's organization membership and role.
  * Clerk JWT tokens include custom claims for B2B tenancy.
  */
 export async function verifyOrgAccess(
-  ctx: any,
+  ctx: QueryCtx | MutationCtx,
   orgId: string,
   allowedRoles?: string[]
 ) {
@@ -15,8 +15,10 @@ export async function verifyOrgAccess(
     throw new Error("Unauthenticated: Please log in");
   }
 
-  let org_id = identity.customClaims?.org_id as string | undefined;
-  let org_role = identity.customClaims?.org_role as string | undefined;
+  const claims = identity.customClaims as Record<string, unknown> | undefined;
+  console.log("DEBUG: identity.customClaims =", JSON.stringify(claims, null, 2));
+  let org_id = claims?.org_id as string | undefined;
+  let org_role = claims?.org_role as string | undefined;
 
   // FALLBACK FOR SMOOTH LOCAL ONBOARDING/DEVELOPMENT:
   // If Clerk B2B JWT session custom claims are not yet configured in Clerk Dashboard,
